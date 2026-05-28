@@ -74,8 +74,45 @@ export function Identity() {
       id="identity"
       ref={sectionRef}
       className="relative w-full py-28"
-      style={{ paddingLeft: 'clamp(48px,10vw,160px)', paddingRight: 'clamp(48px,10vw,160px)', paddingTop: 'clamp(40px,4.5vw,72px)'}}
+      style={{ paddingLeft: 'clamp(48px,10vw,160px)', paddingRight: 'clamp(48px,10vw,160px)', paddingTop: 'clamp(40px,4.5vw,72px)', isolation: 'isolate', overflow: 'hidden' }}
     >
+      {/* ── BJJ paint-streak background ───────────────────── */}
+      <div
+        aria-hidden
+        style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          width: '62%',
+          height: '100%',
+          zIndex: -1,
+          pointerEvents: 'none',
+          clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 2% 100%)',
+        }}
+      >
+        {/* Photo — grayscale, very dark */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: 'url(/samih-bjj.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 15%',
+            filter: 'grayscale(1) brightness(0.28) contrast(1.1)',
+          }}
+        />
+        {/* Atmospheric green flare top-right */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(225deg, rgba(0,255,148,0.05) 0%, transparent 45%)',
+        }} />
+        {/* Top & bottom fade into background */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to bottom, rgba(7,7,7,0.35) 0%, transparent 20%, transparent 72%, rgba(7,7,7,0.6) 100%)',
+        }} />
+      </div>
+
       {/* Section header */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -370,6 +407,29 @@ export function Identity() {
             </motion.div>
           )
         })}
+      </motion.div>
+
+      {/* ── BJJ passion note ──────────────────────────────── */}
+      <motion.div
+        initial={{ opacity: 0, y: 6 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ delay: 0.9, duration: 0.55, ease: EASE }}
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          marginTop: '52px',
+          paddingTop: '20px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          gap: '14px',
+        }}
+      >
+        <span className="font-mono" style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', letterSpacing: '0.09em' }}>
+          Brazilian jiu-jitsu competitor — same relentless drive to submit every problem.
+        </span>
+        <div style={{ width: '1px', height: '12px', backgroundColor: 'rgba(255,255,255,0.8)', flexShrink: 0 }} />
+        <span className="font-mono" style={{ fontSize: '9px', color: 'rgba(255,255,255,0.8)', letterSpacing: '0.3em', flexShrink: 0 }}>// off_grid</span>
       </motion.div>
 
     </section>
