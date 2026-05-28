@@ -123,7 +123,7 @@ function ChannelCard({
     >
       {/* Header: ID + live status */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px' }}>
-        <span className="font-mono" style={{ fontSize: '10px', color: '#4A4A44', letterSpacing: '0.2em' }}>
+        <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.2em' }}>
           {ch.id}
         </span>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -157,7 +157,7 @@ function ChannelCard({
         className="font-sans"
         style={{
           fontSize:  '13px',
-          color:     '#4A4A44',
+          color:     '#ffffff',
           lineHeight: 1.7,
           flexGrow:   1,
         }}
@@ -202,8 +202,8 @@ export function Content() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <span className="font-mono text-xs" style={{ color: '#4A4A44', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#4A4A44' }}>
+          <span className="font-mono text-xs" style={{ color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#3A3A36' }}>
             06 · CONTENT CREATOR
           </span>
           <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.05)' }} />
@@ -243,7 +243,7 @@ export function Content() {
       >
         <motion.span
           className="font-mono inline-block"
-          style={{ fontSize: '10px', letterSpacing: '0.18em', color: '#4A4A44' }}
+          style={{ fontSize: '10px', letterSpacing: '0.18em', color: '#ffffff' }}
           animate={{ x: ['0%', '-50%'] }}
           transition={{ repeat: Infinity, duration: 28, ease: 'linear' }}
         >
@@ -300,7 +300,7 @@ export function Content() {
             </p>
             <span
               className="font-mono text-xs tracking-[0.15em]"
-              style={{ color: '#4A4A44' }}
+              style={{ color: '#ffffff' }}
             >
               — APPROCHE ÉDITORIALE
             </span>

@@ -128,7 +128,7 @@ function CapabilityCard({ cap, index }: { cap: typeof CAPABILITIES[0]; index: nu
         className="font-sans"
         style={{
           fontSize: '12px',
-          color: '#4A4A44',
+          color: '#ffffff',
           lineHeight: 1.65,
           marginBottom: '20px',
         }}
@@ -144,8 +144,8 @@ function CapabilityCard({ cap, index }: { cap: typeof CAPABILITIES[0]; index: nu
             className="font-mono"
             style={{
               fontSize: '9px',
-              color:            hovered ? cap.color        : '#3A3A36',
-              border:           `1px solid ${hovered ? cap.color + '40' : 'rgba(255,255,255,0.07)'}`,
+              color:            hovered ? cap.color        : '#ffffff',
+              border:           `1px solid ${hovered ? cap.color + '40' : 'rgba(255,255,255,0.2)'}`,
               backgroundColor:  hovered ? cap.color + '0A' : 'transparent',
               padding: '3px 8px',
               letterSpacing: '0.1em',
@@ -170,10 +170,10 @@ function SectionStrip({ inView }: { inView: boolean }) {
       style={{ position: 'relative', zIndex: 1, marginBottom: '64px' }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <span className="font-mono" style={{ fontSize: '11px', color: '#4A4A44', letterSpacing: '0.25em' }}>//</span>
+        <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
         <span
           className="font-mono"
-          style={{ fontSize: '11px', color: '#4A4A44', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}
+          style={{ fontSize: '11px', color: '#ffffff', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}
         >
           04 · DEV
         </span>
@@ -272,7 +272,7 @@ export function FullStack() {
             className="font-sans"
             style={{
               fontSize: '14px',
-              color: '#4A4A44',
+              color: '#ffffff',
               lineHeight: 1.8,
               marginBottom: '36px',
               maxWidth: '320px',
@@ -287,7 +287,7 @@ export function FullStack() {
           {/* // worked across label */}
           <motion.p
             className="font-mono"
-            style={{ fontSize: '10px', color: '#2A2A26', letterSpacing: '0.15em', marginBottom: '12px' }}
+            style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.15em', marginBottom: '12px' }}
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.28, duration: 0.4 }}
@@ -308,8 +308,8 @@ export function FullStack() {
                 className="font-mono"
                 style={{
                   fontSize: '10px',
-                  color: '#3A3A36',
-                  border: '1px solid rgba(255,255,255,0.07)',
+                  color: '#ffffff',
+                  border: '1px solid rgba(255,255,255,0.3)',
                   padding: '4px 10px',
                   letterSpacing: '0.08em',
                 }}
@@ -355,7 +355,7 @@ export function FullStack() {
               />
               <span style={{ position: 'relative', width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#00FF94' }} />
             </span>
-            <span className="font-mono" style={{ fontSize: '10px', color: '#3A3A36', letterSpacing: '0.15em' }}>
+            <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.15em' }}>
               SYSTEM · OPERATIONAL
             </span>
           </motion.div>
@@ -401,7 +401,7 @@ export function FullStack() {
 
         <motion.p
           className="font-sans"
-          style={{ fontSize: '14px', color: '#4A4A44', lineHeight: 1.75, marginBottom: '24px' }}
+          style={{ fontSize: '14px', color: '#ffffff', lineHeight: 1.75, marginBottom: '24px' }}
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -411,7 +411,7 @@ export function FullStack() {
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '32px' }}>
           {CONTEXTS.map(ctx => (
-            <span key={ctx} className="font-mono" style={{ fontSize: '10px', color: '#3A3A36', border: '1px solid rgba(255,255,255,0.07)', padding: '4px 10px', letterSpacing: '0.08em' }}>
+            <span key={ctx} className="font-mono" style={{ fontSize: '10px', color: '#ffffff', border: '1px solid rgba(255,255,255,0.07)', padding: '4px 10px', letterSpacing: '0.08em' }}>
               {ctx}
             </span>
           ))}

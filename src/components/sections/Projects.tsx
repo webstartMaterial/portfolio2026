@@ -23,7 +23,7 @@ function ProjectCard({
   inView:  boolean
 }) {
   const [hovered, setHovered] = useState(false)
-  const statusColor = STATUS_COLOR[project.status] ?? '#4A4A44'
+  const statusColor = STATUS_COLOR[project.status] ?? '#ffffff'
 
   return (
     <motion.article
@@ -57,13 +57,13 @@ function ProjectCard({
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <span
             className="font-mono"
-            style={{ fontSize: '10px', color: '#4A4A44', letterSpacing: '0.2em' }}
+            style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.2em' }}
           >
             PID
           </span>
           <span
             className="font-mono font-bold"
-            style={{ fontSize: '13px', color: '#4A4A44', letterSpacing: '0.1em' }}
+            style={{ fontSize: '13px', color: '#ffffff', letterSpacing: '0.1em' }}
           >
             {project.id}
           </span>
@@ -105,7 +105,7 @@ function ProjectCard({
         className="font-sans"
         style={{
           fontSize:     '14px',
-          color:        '#4A4A44',
+          color:        '#ffffff',
           lineHeight:   1.7,
           marginBottom: '24px',
           flexGrow:     1,
@@ -141,7 +141,7 @@ function ProjectCard({
               className="font-mono"
               style={{
                 fontSize:        '10px',
-                color:            hovered ? '#4A4A44' : '#4A4A44',
+                color:            hovered ? '#ffffff' : '#ffffff',
                 border:          `1px solid ${hovered ? 'rgba(255,255,255,0.09)' : 'rgba(255,255,255,0.04)'}`,
                 padding:         '3px 8px',
                 letterSpacing:   '0.05em',
@@ -156,7 +156,7 @@ function ProjectCard({
         {/* Year */}
         <span
           className="font-mono flex-shrink-0 flex items-center gap-1.5"
-          style={{ fontSize: '11px', color: '#4A4A44', letterSpacing: '0.1em' }}
+          style={{ fontSize: '11px', color: '#ffffff', letterSpacing: '0.1em' }}
         >
           <span style={{ color: hovered ? '#00FF94' : '#1E1E1A', transition: 'color 0.2s', fontSize: '14px' }}>↗</span>
           {project.year}
@@ -191,8 +191,8 @@ export function Projects() {
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5 }}
       >
-        <span className="font-mono text-xs" style={{ color: '#4A4A44', letterSpacing: '0.25em' }}>//</span>
-        <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#4A4A44' }}>
+        <span className="font-mono text-xs" style={{ color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
+        <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#3A3A36' }}>
           07 · PROJECTS
         </span>
         <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.05)' }} />
@@ -232,7 +232,7 @@ export function Projects() {
         transition={{ delay: 0.5, duration: 0.5 }}
       >
         <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.05)' }} />
-        <span className="font-mono text-xs tracking-[0.2em]" style={{ color: '#4A4A44' }}>
+        <span className="font-mono text-xs tracking-[0.2em]" style={{ color: '#ffffff' }}>
           PLUS DE PROJETS SUR DEMANDE
         </span>
         <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.05)' }} />

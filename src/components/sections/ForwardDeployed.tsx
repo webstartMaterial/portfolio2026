@@ -310,8 +310,8 @@ export function ForwardDeployed() {
         style={{ position: 'relative', zIndex: 1, marginBottom: '56px' }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#4A4A44', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#4A4A44', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
             03 · FWDAI
           </span>
           <span
@@ -359,7 +359,7 @@ export function ForwardDeployed() {
         className="font-sans"
         style={{
           fontSize: 'clamp(14px, 1.4vw, 18px)',
-          color: '#6A6A62',
+          color: '#ffffff',
           maxWidth: '560px',
           lineHeight: 1.6,
           position: 'relative',
@@ -388,15 +388,15 @@ export function ForwardDeployed() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 0.24, duration: 0.5, ease: EASE }}
       >
-        <span style={{ color: '#4A4A44' }}>I bridge the gap between </span>
+        <span style={{ color: '#ffffff' }}>I bridge the gap between </span>
         <span style={{ color: '#4A9EFF' }}>business needs</span>
-        <span style={{ color: '#4A4A44' }}>, </span>
+        <span style={{ color: '#ffffff' }}>, </span>
         <span style={{ color: '#00D4FF' }}>AI strategy</span>
-        <span style={{ color: '#4A4A44' }}>, </span>
+        <span style={{ color: '#ffffff' }}>, </span>
         <span style={{ color: '#00FF94' }}>full-stack engineering</span>
-        <span style={{ color: '#4A4A44' }}> and </span>
+        <span style={{ color: '#ffffff' }}> and </span>
         <span style={{ color: '#FFB800' }}>real-world deployment</span>
-        <span style={{ color: '#4A4A44' }}>.</span>
+        <span style={{ color: '#ffffff' }}>.</span>
       </motion.p>
 
       {/* ── Phase pipeline ──────────────────────────── */}
@@ -411,7 +411,7 @@ export function ForwardDeployed() {
           className="font-mono"
           style={{
             fontSize: '10px',
-            color: '#4A4A44',
+            color: '#ffffff',
             letterSpacing: '0.2em',
             fontWeight: 700,
             textTransform: 'uppercase',
@@ -457,7 +457,7 @@ export function ForwardDeployed() {
                   {phase.items.map(item => (
                     <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                       <span className="font-mono" style={{ fontSize: '10px', color: phase.color, opacity: 0.5, marginTop: '1px', flexShrink: 0 }}>›</span>
-                      <span className="font-mono" style={{ fontSize: '11px', color: '#4A4A44', lineHeight: 1.5 }}>{item}</span>
+                      <span className="font-mono" style={{ fontSize: '11px', color: '#ffffff', lineHeight: 1.5 }}>{item}</span>
                     </div>
                   ))}
                 </div>
@@ -491,7 +491,7 @@ export function ForwardDeployed() {
                 {phase.items.map(item => (
                   <div key={item} style={{ display: 'flex', gap: '8px' }}>
                     <span className="font-mono" style={{ fontSize: '10px', color: phase.color, opacity: 0.4 }}>›</span>
-                    <span className="font-mono" style={{ fontSize: '11px', color: '#4A4A44' }}>{item}</span>
+                    <span className="font-mono" style={{ fontSize: '11px', color: '#ffffff' }}>{item}</span>
                   </div>
                 ))}
               </div>
@@ -511,7 +511,7 @@ export function ForwardDeployed() {
           className="font-mono"
           style={{
             fontSize: '10px',
-            color: '#4A4A44',
+            color: '#ffffff',
             letterSpacing: '0.2em',
             fontWeight: 700,
             marginBottom: '16px',
@@ -570,7 +570,7 @@ export function ForwardDeployed() {
                 style={{
                   fontSize: '10px',
                   color: '#ffffff',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  border: '1px solid rgba(255,255,255,0.3)',
                   padding: '4px 10px',
                   letterSpacing: '0.1em',
                 }}

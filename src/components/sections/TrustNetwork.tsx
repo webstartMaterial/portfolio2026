@@ -326,7 +326,7 @@ function CountryCard({
                     transition={{ delay: 1.15 + index * 0.12 + ci * 0.07 + ii * 0.025, duration: 0.3 }}
                     style={{
                       fontSize:        '8.5px',
-                      color:           isActive ? c.color : '#4A4A44',
+                      color:           isActive ? c.color : '#ffffff',
                       border:          `1px solid ${isActive ? c.color + '35' : 'rgba(255,255,255,0.07)'}`,
                       backgroundColor: isActive ? `${c.color}08` : 'transparent',
                       padding:         '2px 6px',
@@ -366,7 +366,7 @@ function MobileCountryCard({ country: c, index, inView }: {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: c.color, boxShadow: `0 0 8px ${c.color}` }} />
-          <span className="font-mono" style={{ fontSize: '13px', color: open ? '#E8E8E0' : '#4A4A44', fontWeight: 700, letterSpacing: '0.08em' }}>
+          <span className="font-mono" style={{ fontSize: '13px', color: open ? '#E8E8E0' : '#ffffff', fontWeight: 700, letterSpacing: '0.08em' }}>
             {c.name}
           </span>
           <span className="font-mono" style={{ fontSize: '9px', color: c.color, opacity: 0.6, letterSpacing: '0.1em' }}>
@@ -402,7 +402,7 @@ function MobileCountryCard({ country: c, index, inView }: {
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                 {cat.items.map(item => (
-                  <span key={item} className="font-mono" style={{ fontSize: '9px', color: '#4A4A44', border: '1px solid rgba(255,255,255,0.08)', padding: '3px 8px', letterSpacing: '0.05em' }}>
+                  <span key={item} className="font-mono" style={{ fontSize: '9px', color: '#ffffff', border: '1px solid rgba(255,255,255,0.08)', padding: '3px 8px', letterSpacing: '0.05em' }}>
                     {item}
                   </span>
                 ))}
@@ -446,8 +446,8 @@ export function TrustNetwork() {
         style={{ position: 'relative', zIndex: 1, marginBottom: '48px' }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#4A4A44', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#4A4A44', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
             09 · NETWORK
           </span>
           <span className="font-mono" style={{
@@ -458,7 +458,7 @@ export function TrustNetwork() {
           }}>
             VERIFIED
           </span>
-          <span className="font-mono" style={{ fontSize: '9px', color: '#4A4A44', letterSpacing: '0.12em' }}>
+          <span className="font-mono" style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '0.12em' }}>
             {totalOrgs} ORGANIZATIONS · 4 COUNTRIES
           </span>
           <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(255,255,255,0.05)' }} />
@@ -488,7 +488,7 @@ export function TrustNetwork() {
         className="font-sans"
         style={{
           fontSize:     '13px',
-          color:        '#4A4A44',
+          color:        '#ffffff',
           lineHeight:   1.7,
           maxWidth:     '520px',
           marginBottom: '48px',

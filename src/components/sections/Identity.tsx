@@ -34,10 +34,10 @@ function StatusDot({ status }: { status: string }) {
 function SectionLabel({ index, title }: { index: string; title: string }) {
   return (
     <div className="flex items-center gap-3 mb-14">
-      <span className="font-mono text-xs" style={{ color: '#4A4A44', letterSpacing: '0.25em' }}>
+      <span className="font-mono text-xs" style={{ color: '#3A3A36', letterSpacing: '0.25em' }}>
         //
       </span>
-      <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#4A4A44' }}>
+      <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#3A3A36' }}>
         {index} · {title}
       </span>
       <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.05)' }} />
@@ -97,7 +97,7 @@ export function Identity() {
       </motion.p>
 
       {/* ── DESKTOP: split panel ──────────────────────────── */}
-      <div className="hidden lg:grid lg:grid-cols-[340px_1fr] gap-0">
+      <div className="hidden lg:grid lg:grid-cols-[340px_1fr] gap-0" style={{marginTop: '1rem'}}>
 
         {/* LEFT — module selector */}
         <motion.div
@@ -132,13 +132,13 @@ export function Identity() {
                   <div className="flex items-center gap-3">
                     <span
                       className="font-mono text-xs"
-                      style={{ color: isActive ? '#4A4A44' : '#1E1E1A', letterSpacing: '0.2em' }}
+                      style={{ color: isActive ? '#ffffff' : '#1E1E1A', letterSpacing: '0.2em' }}
                     >
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <span
                       className="font-mono text-sm font-medium transition-colors duration-200"
-                      style={{ color: isActive ? '#E8E8E0' : '#2A2A26', letterSpacing: '0.04em' }}
+                      style={{ color: isActive ? '#E8E8E0' : '#ffffff', letterSpacing: '0.04em' }}
                     >
                       {dim.label}
                     </span>
@@ -223,7 +223,7 @@ export function Identity() {
               {/* Description */}
               <p
                 className="font-sans mb-8 leading-relaxed"
-                style={{ fontSize: '15px', color: '#4A4A44', maxWidth: '520px' }}
+                style={{ fontSize: '15px', color: '#ffffff', maxWidth: '520px' }}
               >
                 {activeDim.desc}
               </p>
@@ -231,7 +231,7 @@ export function Identity() {
               {/* Dynamic content per module */}
               {'stack' in activeDim && (
                 <div className="mb-6" style={{marginTop: '1rem'}}>
-                  <p className="font-bold text-[10px] tracking-[0.2em] mb-3" style={{ color: '#4A4A44' }}>
+                  <p className="font-bold text-[10px] tracking-[0.2em] mb-3" style={{ color: '#ffffff' }}>
                     STACK
                   </p>
                   <div className="flex flex-wrap gap-2" style={{paddingBottom: '1rem'}}>
@@ -239,7 +239,7 @@ export function Identity() {
                       <span
                         key={tech}
                         className="font-mono text-xs px-3 py-1 border"
-                        style={{ color: '#4A4A44', borderColor: 'rgba(255,255,255,0.07)' }}
+                        style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.3)' }}
                       >
                         {tech}
                       </span>
@@ -250,14 +250,14 @@ export function Identity() {
 
               {'builds' in activeDim && (
                 <div>
-                  <p className="font-bold text-[10px] tracking-[0.2em] mb-3" style={{ color: '#4A4A44' }}>
+                  <p className="font-bold text-[10px] tracking-[0.2em] mb-3" style={{ color: '#ffffff' }}>
                     DELIVERABLES
                   </p>
                   <div className="flex flex-col gap-1.5">
                     {(activeDim as typeof activeDim & { builds: string[] }).builds.map((item: string) => (
                       <div key={item} className="flex items-center gap-3">
                         <span className="font-mono text-xs" style={{ color: '#00FF94', opacity: 0.5 }}>→</span>
-                        <span className="font-mono text-xs" style={{ color: '#4A4A44' }}>{item}</span>
+                        <span className="font-mono text-xs" style={{ color: '#ffffff' }}>{item}</span>
                       </div>
                     ))}
                   </div>
@@ -274,7 +274,7 @@ export function Identity() {
                       >
                         {typeof v === 'number' ? v.toLocaleString() + '+' : v}
                       </span>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: '#4A4A44' }}>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: '#ffffff' }}>
                         {k}
                       </span>
                     </div>
@@ -284,7 +284,7 @@ export function Identity() {
 
               {'formats' in activeDim && (
                 <div style={{marginTop: '1rem'}}>
-                  <p className="font-bold text-[10px] tracking-[0.2em] mb-3" style={{ color: '#4A4A44' }}>
+                  <p className="font-bold text-[10px] tracking-[0.2em] mb-3" style={{ color: '#ffffff' }}>
                     FORMATS
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -292,7 +292,7 @@ export function Identity() {
                       <span
                         key={f}
                         className="font-mono text-xs px-3 py-1 border"
-                        style={{ color: '#4A4A44', borderColor: 'rgba(255,255,255,0.07)' }}
+                        style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.3)' }}
                       >
                         {f}
                       </span>
@@ -316,14 +316,14 @@ export function Identity() {
           const isActive = dim.id === activeId
           const cfg = STATUS_CFG[dim.status] ?? STATUS_CFG.RUNNING
           return (
-            <motion.div key={dim.id} variants={itemVariants} className="border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+            <motion.div key={dim.id} variants={itemVariants} className="border-b" style={{ borderColor: 'rgba(255,255,255,0.06)', marginBottom: '1rem' }}>
               <button
                 onClick={() => setActiveId(isActive ? '' : dim.id)}
                 className="w-full text-left py-5 flex items-center justify-between"
               >
                 <div className="flex items-center gap-4">
                   <StatusDot status={dim.status} />
-                  <span className="font-mono text-sm font-medium" style={{ color: isActive ? '#E8E8E0' : '#4A4A44' }}>
+                  <span className="font-mono text-sm font-medium" style={{ color: isActive ? '#E8E8E0' : '#ffffff' }}>
                     {dim.label}
                   </span>
                 </div>
@@ -348,18 +348,18 @@ export function Identity() {
                   >
                     <div className="pb-8 flex flex-col gap-5">
                       <p className="font-mono text-xs" style={{ color: cfg.color, opacity: 0.8 }}>{dim.tagline}</p>
-                      <p className="font-sans text-sm leading-relaxed" style={{ color: '#4A4A44' }}>{dim.desc}</p>
+                      <p className="font-sans text-sm leading-relaxed" style={{ color: '#ffffff' }}>{dim.desc}</p>
                       {'stack' in dim && (
                         <div className="flex flex-wrap gap-2">
                           {(dim as typeof dim & { stack: string[] }).stack.map((t: string) => (
-                            <span key={t} className="font-mono text-xs px-2.5 py-1 border" style={{ color: '#4A4A44', borderColor: 'rgba(255,255,255,0.07)' }}>{t}</span>
+                            <span key={t} className="font-mono text-xs px-2.5 py-1 border" style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.3)' }}>{t}</span>
                           ))}
                         </div>
                       )}
                       {'formats' in dim && (
                         <div className="flex flex-wrap gap-2">
                           {(dim as typeof dim & { formats: string[] }).formats.map((f: string) => (
-                            <span key={f} className="font-mono text-xs px-2.5 py-1 border" style={{ color: '#4A4A44', borderColor: 'rgba(255,255,255,0.07)' }}>{f}</span>
+                            <span key={f} className="font-mono text-xs px-2.5 py-1 border" style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.3)' }}>{f}</span>
                           ))}
                         </div>
                       )}

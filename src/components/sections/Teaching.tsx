@@ -164,7 +164,7 @@ function AudienceCard({ aud, index }: { aud: typeof AUDIENCES[0]; index: number 
         {/* Method */}
         <div style={{ marginBottom: '14px' }}>
           <p className="font-mono" style={{
-            fontSize: '9px', color: '#4A4A44',
+            fontSize: '9px', color: '#ffffff',
             letterSpacing: '0.2em', fontWeight: 700, marginBottom: '8px',
           }}>
             METHOD
@@ -173,7 +173,7 @@ function AudienceCard({ aud, index }: { aud: typeof AUDIENCES[0]; index: number 
             {aud.methods.map(m => (
               <div key={m} style={{ display: 'flex', gap: '6px', alignItems: 'flex-start' }}>
                 <span className="font-mono" style={{ fontSize: '10px', color: aud.color, opacity: 0.45, flexShrink: 0, marginTop: '1px' }}>›</span>
-                <span className="font-mono" style={{ fontSize: '10px', color: '#4A4A44', lineHeight: 1.45 }}>{m}</span>
+                <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', lineHeight: 1.45 }}>{m}</span>
               </div>
             ))}
           </div>
@@ -185,7 +185,7 @@ function AudienceCard({ aud, index }: { aud: typeof AUDIENCES[0]; index: number 
         {/* Outcomes */}
         <div style={{ marginTop: 'auto' }}>
           <p className="font-mono" style={{
-            fontSize: '9px', color: '#4A4A44',
+            fontSize: '9px', color: '#ffffff',
             letterSpacing: '0.2em', fontWeight: 700, marginBottom: '8px',
           }}>
             OUTCOMES
@@ -194,7 +194,7 @@ function AudienceCard({ aud, index }: { aud: typeof AUDIENCES[0]; index: number 
             {aud.outcomes.map(o => (
               <span key={o} className="font-mono" style={{
                 fontSize:        '9px',
-                color:           hovered ? aud.color : '#3A3A36',
+                color:           hovered ? aud.color : '#ffffff',
                 border:          `1px solid ${hovered ? aud.color + '40' : 'rgba(255,255,255,0.07)'}`,
                 backgroundColor: hovered ? aud.color + '0A' : 'transparent',
                 padding:         '2px 7px',
@@ -264,8 +264,8 @@ export function Teaching() {
         style={{ position: 'relative', zIndex: 1, marginBottom: '64px' }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#4A4A44', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#4A4A44', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
             05 · TEACH
           </span>
           <span className="font-mono" style={{
@@ -307,7 +307,7 @@ export function Teaching() {
         className="font-sans"
         style={{
           fontSize:     '14px',
-          color:        '#4A4A44',
+          color:        '#ffffff',
           lineHeight:   1.8,
           maxWidth:     '580px',
           marginBottom: '16px',
@@ -325,7 +325,7 @@ export function Teaching() {
         className="font-sans"
         style={{
           fontSize:     '13px',
-          color:        '#3A3A36',
+          color:        '#ffffff',
           lineHeight:   1.75,
           maxWidth:     '560px',
           marginBottom: '56px',
@@ -391,7 +391,7 @@ export function Teaching() {
               </div>
               <span className="font-mono" style={{
                 fontSize:      '10px',
-                color:         '#4A4A44',
+                color:         '#ffffff',
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
               }}>
@@ -410,7 +410,7 @@ export function Teaching() {
         transition={{ delay: 0.42, duration: 0.5 }}
       >
         <p className="font-mono" style={{
-          fontSize: '10px', color: '#4A4A44', letterSpacing: '0.2em',
+          fontSize: '10px', color: '#ffffff', letterSpacing: '0.2em',
           fontWeight: 700, marginBottom: '20px',
         }}>
           LEARNING METHODOLOGY
@@ -482,7 +482,7 @@ export function Teaching() {
                 {step.label}
               </span>
               {i < METHOD_STEPS.length - 1 && (
-                <span className="font-mono" style={{ fontSize: '11px', color: '#2A2A26' }}>→</span>
+                <span className="font-mono" style={{ fontSize: '11px', color: '#ffffff' }}>→</span>
               )}
             </div>
           ))}
@@ -497,7 +497,7 @@ export function Teaching() {
         transition={{ delay: 0.5, duration: 0.4 }}
       >
         <p className="font-mono" style={{
-          fontSize: '10px', color: '#4A4A44',
+          fontSize: '10px', color: '#ffffff',
           letterSpacing: '0.2em', fontWeight: 700, marginBottom: '16px',
         }}>
           TARGET AUDIENCES

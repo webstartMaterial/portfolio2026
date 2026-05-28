@@ -223,7 +223,7 @@ function YearLabel({
       <span className="font-mono" style={{ fontSize: '9px', color: color, letterSpacing: '0.2em', opacity: 0.7 }}>
         [{log}]
       </span>
-      <span className="font-mono font-bold" style={{ fontSize: 'clamp(22px,2.5vw,30px)', color: '#4A4A44', letterSpacing: '-0.04em', lineHeight: 1 }}>
+      <span className="font-mono font-bold" style={{ fontSize: 'clamp(22px,2.5vw,30px)', color: '#ffffff', letterSpacing: '-0.04em', lineHeight: 1 }}>
         {year}
       </span>
     </motion.div>
@@ -264,7 +264,7 @@ function CardContent({
         >
           {entry.tag}
         </span>
-        <span className="font-mono" style={{ fontSize: '9px', color: '#4A4A44', letterSpacing: '0.15em' }}>
+        <span className="font-mono" style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '0.15em' }}>
           {entry.year}
         </span>
       </div>
@@ -276,7 +276,7 @@ function CardContent({
       </h4>
       <p
         className="font-sans"
-        style={{ fontSize: '12px', color: '#4A4A44', lineHeight: 1.7 }}
+        style={{ fontSize: '12px', color: '#ffffff', lineHeight: 1.7 }}
       >
         {entry.desc}
       </p>
@@ -307,7 +307,7 @@ function MobileEntry({ entry, index }: { entry: typeof ENTRIES[number]; index: n
       {/* Content */}
       <div style={{ flex: 1, paddingBottom: '28px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-          <span className="font-mono font-bold" style={{ fontSize: '20px', color: '#4A4A44', letterSpacing: '-0.04em', lineHeight: 1 }}>
+          <span className="font-mono font-bold" style={{ fontSize: '20px', color: '#ffffff', letterSpacing: '-0.04em', lineHeight: 1 }}>
             {entry.year}
           </span>
           <span className="font-mono" style={{ fontSize: '9px', color: color, letterSpacing: '0.2em', opacity: 0.8 }}>
@@ -323,7 +323,7 @@ function MobileEntry({ entry, index }: { entry: typeof ENTRIES[number]; index: n
         <h4 className="font-mono font-medium" style={{ fontSize: '14px', color: isCurrent ? '#E8E8E0' : '#C8C8C0', marginBottom: '6px', lineHeight: 1.3 }}>
           {entry.title}
         </h4>
-        <p className="font-sans" style={{ fontSize: '12px', color: '#4A4A44', lineHeight: 1.7 }}>
+        <p className="font-sans" style={{ fontSize: '12px', color: '#ffffff', lineHeight: 1.7 }}>
           {entry.desc}
         </p>
       </div>
@@ -353,8 +353,8 @@ export function Timeline() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <span className="font-mono text-xs" style={{ color: '#4A4A44', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#4A4A44' }}>
+          <span className="font-mono text-xs" style={{ color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#3A3A36' }}>
             10 · TIMELINE
           </span>
           <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.05)' }} />
@@ -387,7 +387,7 @@ export function Timeline() {
           {Object.entries(TAG_COLOR).map(([tag, color]) => (
             <div key={tag} style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
               <div style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: color }} />
-              <span className="font-mono" style={{ fontSize: '9px', color: '#4A4A44', letterSpacing: '0.2em' }}>{tag}</span>
+              <span className="font-mono" style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '0.2em' }}>{tag}</span>
             </div>
           ))}
         </motion.div>
@@ -462,7 +462,7 @@ export function Timeline() {
           style={{ paddingTop: '2rem' }}
           >
           <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.05)' }} />
-          <span className="font-mono text-[10px] tracking-[0.2em]" style={{ color: '#4A4A44' }}>
+          <span className="font-mono text-[10px] tracking-[0.2em]" style={{ color: '#ffffff' }}>
             LOG END — PROCESS STILL RUNNING
           </span>
           <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.05)' }} />

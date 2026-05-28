@@ -88,7 +88,7 @@ function MetricCard({
         className="font-mono"
         style={{
           fontSize:      '10px',
-          color:         '#4A4A44',
+          color:         '#ffffff',
           letterSpacing: '0.2em',
           textTransform: 'uppercase' as const,
           marginBottom:  '16px',
@@ -149,8 +149,8 @@ export function Metrics() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <span className="font-mono text-xs" style={{ color: '#4A4A44', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#4A4A44' }}>
+          <span className="font-mono text-xs" style={{ color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#3A3A36' }}>
             08 · METRICS
           </span>
           <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.05)' }} />
@@ -234,7 +234,7 @@ export function Metrics() {
             >
               Dev · Formateur · Créateur.
               <br />
-              <span style={{ color: '#4A4A44' }}>Un profil, trois dimensions actives.</span>
+              <span style={{ color: '#ffffff' }}>Un profil, trois dimensions actives.</span>
             </p>
             <div className="flex items-center gap-3 flex-wrap mt-1">
               {(['DEV', 'FORMATION', 'CONTENT'] as const).map((tag) => {

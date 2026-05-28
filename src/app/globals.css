@@ -12,7 +12,7 @@
   --color-accent-glow: rgba(0,255,148,0.18);
 
   --color-fg-primary:   #E8E8E0;
-  --color-fg-secondary: #4A4A44;
+  --color-fg-secondary: #ffffff;
   --color-fg-ghost:     #1E1E1A;
 
   --color-border-subtle: rgba(255,255,255,0.05);
@@ -92,4 +92,4 @@ body::before {
 ::-webkit-scrollbar        { width: 3px; }
 ::-webkit-scrollbar-track  { background: #050505; }
 ::-webkit-scrollbar-thumb  { background: #1E1E1A; }
-::-webkit-scrollbar-thumb:hover { background: #4A4A44; }
+::-webkit-scrollbar-thumb:hover { background: #ffffff; }

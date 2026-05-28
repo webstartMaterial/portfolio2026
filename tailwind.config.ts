@@ -15,7 +15,7 @@ const config: Config = {
         },
         fg: {
           primary: '#E8E8E0',
-          secondary: '#4A4A44',
+          secondary: '#ffffff',
           ghost: '#1E1E1A',
         },
         border: {

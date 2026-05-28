@@ -25,7 +25,7 @@ function Char({ char, delay }: { char: string; delay: number }) {
 
 const STATUS_COLOR: Record<string, string> = {
   STATUS:  '#00FF94',
-  default: '#4A4A44',
+  default: '#ffffff',
 }
 
 // ── Full-bleed portrait panel ─────────────────────────────
@@ -282,7 +282,7 @@ export function Hero() {
         {/* Prompt */}
         <div className="mb-10 h-5 flex items-center">
           {phase >= 1 && (
-            <p className="font-mono text-xs tracking-wider" style={{ color: '#4A4A44' }}>
+            <p className="font-mono text-xs tracking-wider" style={{ color: '#3A3A36' }}>
               {promptText}
               {!promptDone && (
                 <span
@@ -448,7 +448,7 @@ export function Hero() {
             style={{
               fontSize:   '11px',
               padding:    '13px 26px',
-              color:      '#4A4A44',
+              color:      '#ffffff',
               border:     '1px solid rgba(255,255,255,0.09)',
               background: 'transparent',
             }}
@@ -457,7 +457,7 @@ export function Hero() {
               e.currentTarget.style.borderColor = 'rgba(255,255,255,0.22)'
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.color       = '#4A4A44'
+              e.currentTarget.style.color       = '#ffffff'
               e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)'
             }}
           >

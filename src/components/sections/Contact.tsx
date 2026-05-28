@@ -58,7 +58,7 @@ function TerminalInput({
         className="font-mono flex-shrink-0"
         style={{
           fontSize:      '11px',
-          color:         focused ? '#00FF94' : '#4A4A44',
+          color:         focused ? '#00FF94' : '#ffffff',
           letterSpacing: '0.1em',
           transition:    'color 0.2s',
           paddingTop:    multiline ? '2px' : '0',
@@ -138,8 +138,8 @@ export function Contact() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <span className="font-mono text-xs" style={{ color: '#4A4A44', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#4A4A44' }}>
+          <span className="font-mono text-xs" style={{ color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#3A3A36' }}>
             11 · CONTACT
           </span>
           <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.05)' }} />
@@ -173,7 +173,7 @@ export function Contact() {
           </p>
           <p
             className="font-sans"
-            style={{ fontSize: 'clamp(14px,1.4vw,16px)', color: '#4A4A44', lineHeight: 1.6, maxWidth: '480px' }}
+            style={{ fontSize: 'clamp(14px,1.4vw,16px)', color: '#ffffff', lineHeight: 1.6, maxWidth: '480px' }}
           >
             Vous avez un projet, une formation, une idée.
             <br />
@@ -303,7 +303,7 @@ export function Contact() {
           >
             {/* Status */}
             <div>
-              <span className="font-mono" style={{ fontSize: '9px', color: '#4A4A44', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>
+              <span className="font-mono" style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>
                 STATUS
               </span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -318,7 +318,7 @@ export function Contact() {
 
             {/* Email */}
             <div>
-              <span className="font-mono" style={{ fontSize: '9px', color: '#4A4A44', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>
+              <span className="font-mono" style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>
                 EMAIL
               </span>
               <a
@@ -336,7 +336,7 @@ export function Contact() {
 
             {/* Links */}
             <div>
-              <span className="font-mono" style={{ fontSize: '9px', color: '#4A4A44', letterSpacing: '0.2em', display: 'block', marginBottom: '12px' }}>
+              <span className="font-mono" style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '0.2em', display: 'block', marginBottom: '12px' }}>
                 LINKS
               </span>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -352,7 +352,7 @@ export function Contact() {
                     className="font-mono"
                     style={{
                       fontSize:      '11px',
-                      color:         '#4A4A44',
+                      color:         '#ffffff',
                       letterSpacing: '0.1em',
                       textDecoration:'none',
                       display:       'flex',
@@ -361,9 +361,9 @@ export function Contact() {
                       transition:    'color 0.2s',
                     }}
                     onMouseEnter={e => (e.currentTarget.style.color = '#E8E8E0')}
-                    onMouseLeave={e => (e.currentTarget.style.color = '#4A4A44')}
+                    onMouseLeave={e => (e.currentTarget.style.color = '#ffffff')}
                   >
-                    <span style={{ color: '#4A4A44', fontSize: '10px' }}>↗</span>
+                    <span style={{ color: '#ffffff', fontSize: '10px' }}>↗</span>
                     {label}
                   </a>
                 ))}
@@ -374,10 +374,10 @@ export function Contact() {
 
             {/* Location */}
             <div>
-              <span className="font-mono" style={{ fontSize: '9px', color: '#4A4A44', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>
+              <span className="font-mono" style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>
                 LOCATION
               </span>
-              <span className="font-mono" style={{ fontSize: '12px', color: '#4A4A44', letterSpacing: '0.05em' }}>
+              <span className="font-mono" style={{ fontSize: '12px', color: '#ffffff', letterSpacing: '0.05em' }}>
                 France / Remote
               </span>
             </div>
@@ -401,13 +401,13 @@ export function Contact() {
           flexWrap:     'wrap',
         }}
       >
-        <span className="font-mono" style={{ fontSize: '10px', color: '#4A4A44', letterSpacing: '0.2em' }}>
+        <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.2em' }}>
           © 2026 SAMIH HABBANI
         </span>
-        <span className="font-mono" style={{ fontSize: '10px', color: '#4A4A44', letterSpacing: '0.15em' }}>
+        <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.15em' }}>
           Hello World · v1.0.0
         </span>
-        <span className="font-mono" style={{ fontSize: '10px', color: '#4A4A44', letterSpacing: '0.15em' }}>
+        <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.15em' }}>
           BUILT WITH NEXT.JS · FRAMER MOTION
         </span>
       </motion.footer>
