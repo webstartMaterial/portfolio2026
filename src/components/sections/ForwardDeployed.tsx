@@ -551,9 +551,9 @@ export function ForwardDeployed() {
             className="font-mono"
             style={{
               fontSize: '10px',
-              color: '#4A4A44',
+              color: '#ffffff',
               letterSpacing: '0.2em',
-              fontWeight: 700,
+              fontWeight: 'bold',
               marginBottom: '14px',
             }}
           >
@@ -569,7 +569,7 @@ export function ForwardDeployed() {
                 transition={{ delay: 0.52 + i * 0.025, duration: 0.35 }}
                 style={{
                   fontSize: '10px',
-                  color: '#3A3A36',
+                  color: '#ffffff',
                   border: '1px solid rgba(255,255,255,0.06)',
                   padding: '4px 10px',
                   letterSpacing: '0.1em',
