@@ -271,6 +271,140 @@ function DomainCard({ domain, index }: { domain: typeof DOMAINS[0]; index: numbe
   )
 }
 
+// ── AI Photo Frame — WAICF ────────────────────────────────
+function AIPhotoFrame({ inView }: { inView: boolean }) {
+  return (
+    <motion.div
+      aria-hidden
+      className="hidden lg:block"
+      initial={{ opacity: 0, y: 12 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay: 0.35, duration: 0.7, ease: EASE }}
+      style={{
+        position:  'absolute',
+        top:       'clamp(72px,8vw,120px)',
+        right:     'clamp(48px,10vw,160px)',
+        width:     'clamp(300px,34%,440px)',
+        height:    'clamp(500px,56%,620px)',
+        zIndex:    0,
+        pointerEvents: 'none',
+        overflow:  'hidden',
+      }}
+    >
+      {/* ── Photo ───────────────────────────────── */}
+      <div style={{
+        position:           'absolute', inset: 0,
+        backgroundImage:    'url(/samih-waicf.jpg)',
+        backgroundSize:     'cover',
+        backgroundPosition: 'center 20%',
+        filter:             'brightness(0.32) contrast(1.1) saturate(0.25)',
+      }} />
+
+      {/* Cyan tint */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'linear-gradient(135deg, rgba(0,212,255,0.09) 0%, rgba(74,158,255,0.04) 100%)',
+      }} />
+
+      {/* Blueprint grid */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        backgroundImage: [
+          'linear-gradient(rgba(0,212,255,0.055) 1px, transparent 1px)',
+          'linear-gradient(90deg, rgba(0,212,255,0.055) 1px, transparent 1px)',
+        ].join(', '),
+        backgroundSize: '28px 28px',
+      }} />
+
+      {/* Vignette */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'radial-gradient(ellipse at center, transparent 35%, rgba(3,3,3,0.55) 100%)',
+      }} />
+
+      {/* Outer border */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        border: '1px solid rgba(0,212,255,0.2)',
+        pointerEvents: 'none',
+      }} />
+
+      {/* ── Scan line ───────────────────────────── */}
+      <motion.div
+        style={{
+          position: 'absolute', left: 0, right: 0, height: '2px',
+          background: 'linear-gradient(to right, transparent 0%, rgba(0,212,255,0.6) 25%, rgba(0,212,255,1) 50%, rgba(0,212,255,0.6) 75%, transparent 100%)',
+          boxShadow:  '0 0 14px 2px rgba(0,212,255,0.45)',
+          zIndex:     4,
+        }}
+        animate={{ top: ['-2px', '102%'] }}
+        transition={{ duration: 3.8, repeat: Infinity, ease: 'linear', delay: 0.8 }}
+      />
+
+      {/* ── Corner brackets ─────────────────────── */}
+      {/* top-left */}
+      <motion.div style={{ position: 'absolute', top: 10, left: 10, width: 22, height: 22, zIndex: 5 }}
+        animate={{ opacity: [0.45, 1, 0.45] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '1px', backgroundColor: '#00D4FF' }} />
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '1px', height: '100%', backgroundColor: '#00D4FF' }} />
+      </motion.div>
+      {/* top-right */}
+      <motion.div style={{ position: 'absolute', top: 10, right: 10, width: 22, height: 22, zIndex: 5 }}
+        animate={{ opacity: [0.45, 1, 0.45] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', delay: 0.55 }}>
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '1px', backgroundColor: '#00D4FF' }} />
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '1px', height: '100%', backgroundColor: '#00D4FF' }} />
+      </motion.div>
+      {/* bottom-left (above caption) */}
+      <motion.div style={{ position: 'absolute', bottom: 52, left: 10, width: 18, height: 18, zIndex: 5 }}
+        animate={{ opacity: [0.3, 0.7, 0.3] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', delay: 1.1 }}>
+        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '1px', backgroundColor: '#00D4FF' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '1px', height: '100%', backgroundColor: '#00D4FF' }} />
+      </motion.div>
+      {/* bottom-right (above caption) */}
+      <motion.div style={{ position: 'absolute', bottom: 52, right: 10, width: 18, height: 18, zIndex: 5 }}
+        animate={{ opacity: [0.3, 0.7, 0.3] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', delay: 1.65 }}>
+        <div style={{ position: 'absolute', bottom: 0, right: 0, width: '100%', height: '1px', backgroundColor: '#00D4FF' }} />
+        <div style={{ position: 'absolute', bottom: 0, right: 0, width: '1px', height: '100%', backgroundColor: '#00D4FF' }} />
+      </motion.div>
+
+      {/* ── Top status label ────────────────────── */}
+      <div style={{
+        position: 'absolute', top: 12, left: '50%', transform: 'translateX(-50%)',
+        display: 'flex', alignItems: 'center', gap: '6px', zIndex: 5,
+      }}>
+        <motion.div
+          style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#00D4FF', flexShrink: 0 }}
+          animate={{ opacity: [1, 0.15, 1] }}
+          transition={{ duration: 1.1, repeat: Infinity }}
+        />
+        <span className="font-mono" style={{ fontSize: '7px', color: '#00D4FF', letterSpacing: '0.22em', opacity: 0.75, whiteSpace: 'nowrap' }}>
+          WAICF_2024 · CANNES
+        </span>
+      </div>
+
+      {/* ── Caption strip ───────────────────────── */}
+      <motion.div
+        style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 5,
+          backgroundColor: 'rgba(3,3,3,0.88)',
+          borderTop: '1px solid rgba(0,212,255,0.22)',
+          padding: '9px 12px 10px',
+        }}
+        initial={{ opacity: 0, y: 6 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ delay: 0.9, duration: 0.5 }}
+      >
+        <p className="font-mono" style={{ fontSize: '8px', color: '#00D4FF', letterSpacing: '0.14em', marginBottom: '3px', opacity: 0.85 }}>
+          // World AI Cannes Festival
+        </p>
+        <p className="font-mono" style={{ fontSize: '8px', color: 'rgba(255,255,255,0.35)', letterSpacing: '0.06em', lineHeight: 1.45 }}>
+          Deployed on-site with students — Cannes 2024
+        </p>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 // ── Main export ─────────────────────────────────────────────
 export function ForwardDeployed() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -301,6 +435,7 @@ export function ForwardDeployed() {
       }}
     >
       <DotGrid />
+      <AIPhotoFrame inView={inView} />
 
       {/* ── Section header ─────────────────────────── */}
       <motion.div

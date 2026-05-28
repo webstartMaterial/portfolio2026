@@ -236,6 +236,79 @@ export function Teaching() {
     >
       <NotebookLines />
 
+      {/* ── Classroom photo — right side (desktop only) ──── */}
+      <div
+        aria-hidden
+        className="hidden lg:block"
+        style={{
+          position:      'absolute',
+          top:           0,
+          left:          '50%',
+          right:         0,
+          height:        'clamp(560px,72%,820px)',
+          zIndex:        0,
+          pointerEvents: 'none',
+        }}
+      >
+        {/* Photo */}
+        <div style={{
+          position:           'absolute',
+          inset:              0,
+          backgroundImage:    'url(/samih-class.jpg)',
+          backgroundSize:     'cover',
+          backgroundPosition: 'center 20%',
+          filter:             'grayscale(1) brightness(0.3) contrast(1.05)',
+        }} />
+
+        {/* Blueprint grid overlay */}
+        <div style={{
+          position:        'absolute',
+          inset:           0,
+          backgroundImage: [
+            'linear-gradient(rgba(74,158,255,0.06) 1px, transparent 1px)',
+            'linear-gradient(90deg, rgba(74,158,255,0.06) 1px, transparent 1px)',
+          ].join(', '),
+          backgroundSize: '34px 34px',
+        }} />
+
+        {/* Left fade — blends into section bg */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to right, #040404 0%, #040404 4%, transparent 40%)',
+        }} />
+        {/* Top fade */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to bottom, #040404 0%, transparent 22%)',
+        }} />
+        {/* Bottom fade */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to top, #040404 0%, transparent 26%)',
+        }} />
+        {/* Blue atmospheric tint */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to bottom left, rgba(74,158,255,0.06) 0%, transparent 55%)',
+        }} />
+
+        {/* ── Corner frame — top right ────────────────────── */}
+        <div style={{ position: 'absolute', top: '24px', right: '24px', width: '36px', height: '36px' }}>
+          <div style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '1px', backgroundColor: '#4A9EFF', opacity: 0.55 }} />
+          <div style={{ position: 'absolute', top: 0, right: 0, width: '1px',   height: '100%', backgroundColor: '#4A9EFF', opacity: 0.55 }} />
+        </div>
+        {/* Corner frame — top left (subtle) */}
+        <div style={{ position: 'absolute', top: '24px', left: 0, width: '28px', height: '28px' }}>
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '1px', backgroundColor: '#4A9EFF', opacity: 0.2 }} />
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '1px',   height: '100%', backgroundColor: '#4A9EFF', opacity: 0.2 }} />
+        </div>
+        {/* Corner frame — bottom right (subtle) */}
+        <div style={{ position: 'absolute', bottom: '24px', right: '24px', width: '28px', height: '28px' }}>
+          <div style={{ position: 'absolute', bottom: 0, right: 0, width: '100%', height: '1px', backgroundColor: '#4A9EFF', opacity: 0.25 }} />
+          <div style={{ position: 'absolute', bottom: 0, right: 0, width: '1px',   height: '100%', backgroundColor: '#4A9EFF', opacity: 0.25 }} />
+        </div>
+      </div>
+
       {/* Watermark */}
       <div
         aria-hidden
