@@ -46,7 +46,7 @@ export function Navbar({ showDelay = 4.0 }: { showDelay?: number }) {
           <li key={label}>
             <a
               href={href}
-              className="font-mono text-[12px] font-medium tracking-[0.22em] text-fg-secondary hover:text-fg-primary transition-colors duration-200"
+              className="font-mono text-[12px] font-semibold tracking-[0.22em] text-fg-primary hover:text-[#00FF94] transition-colors duration-200"
             >
               {label}
             </a>
