@@ -162,7 +162,7 @@ export function Contact() {
             className="font-mono"
             style={{ fontSize: 'clamp(22px,3vw,38px)', color: '#E8E8E0', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: '16px' }}
           >
-            <span style={{ color: '#00FF94' }}>{'>'}</span> Initier une connexion
+            <span style={{ color: '#00FF94' }}>{'>'}</span> Initiate a connection
             <motion.span
               style={{ color: '#00FF94' }}
               animate={{ opacity: [1, 0, 1] }}
@@ -175,9 +175,9 @@ export function Contact() {
             className="font-sans"
             style={{ fontSize: 'clamp(14px,1.4vw,16px)', color: '#ffffff', lineHeight: 1.6, maxWidth: '480px' }}
           >
-            Vous avez un projet, une formation, une idée.
+            You have a project, a training need, an idea.
             <br />
-            Écrivons-le ensemble.
+            Let's build it together.
           </p>
         </motion.div>
 
@@ -208,7 +208,7 @@ export function Contact() {
           >
             <TerminalInput
               prefix="$ IDENT:"
-              placeholder="votre nom"
+              placeholder="your name"
               value={name}
               onChange={setName}
               disabled={disabled}
@@ -216,14 +216,14 @@ export function Contact() {
             <TerminalInput
               prefix="$ ADDR: "
               type="email"
-              placeholder="votre email"
+              placeholder="your email"
               value={email}
               onChange={setEmail}
               disabled={disabled}
             />
             <TerminalInput
               prefix="$ MSG:  "
-              placeholder="décrivez votre projet, idée ou demande…"
+              placeholder="describe your project, idea or request…"
               value={message}
               onChange={setMessage}
               multiline
@@ -282,7 +282,7 @@ export function Contact() {
                   className="font-mono"
                   style={{ fontSize: '10px', color: '#00FF94', letterSpacing: '0.15em', marginTop: '10px', opacity: 0.7 }}
                 >
-                  {'>'} Message reçu. Réponse dans les 24h.
+                  {'>'} Message received. Response within 24h.
                 </motion.p>
               )}
             </div>

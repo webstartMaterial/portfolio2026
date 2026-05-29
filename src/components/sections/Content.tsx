@@ -10,46 +10,46 @@ const CHANNELS = [
   {
     id:     'CH_01',
     status: 'ON AIR',
-    title:  'Vidéos Éducatives',
-    desc:   'Tutoriels, deep dives et breakdowns tech — du concept à l\'implémentation concrète.',
+    title:  'Educational Videos',
+    desc:   'Tutorials, deep dives and tech breakdowns — from concept to concrete implementation.',
     color:  '#FF4D4D',
   },
   {
     id:     'CH_02',
     status: 'PUBLISHED',
-    title:  'Formations en Ligne',
-    desc:   'Cours complets avec projets guidés, exercices pratiques et progression structurée.',
+    title:  'Online Courses',
+    desc:   'Complete courses with guided projects, practical exercises and structured progression.',
     color:  '#00FF94',
   },
   {
     id:     'CH_03',
     status: 'ACTIVE',
-    title:  'Storytelling Tech',
-    desc:   'Fils narratifs qui rendent la technologie humaine, concrète et mémorable.',
+    title:  'Tech Storytelling',
+    desc:   'Narrative threads that make technology human, concrete and memorable.',
     color:  '#4A9EFF',
   },
   {
     id:     'CH_04',
     status: 'RUNNING',
-    title:  'Vulgarisation IA',
-    desc:   'L\'intelligence artificielle expliquée sans jargon — avec impact, exemples et clarté.',
+    title:  'AI Popularization',
+    desc:   'Artificial intelligence explained without jargon — with impact, examples and clarity.',
     color:  '#FFB800',
   },
   {
     id:     'CH_05',
     status: 'LIVE',
-    title:  'Ateliers Interactifs',
-    desc:   'Sessions en direct, démos live et expériences pédagogiques immersives.',
+    title:  'Interactive Workshops',
+    desc:   'Live sessions, live demos and immersive learning experiences.',
     color:  '#FF4D4D',
   },
 ] as const
 
 // ── Ticker topics ─────────────────────────────────────────
 const TOPICS = [
-  'React', 'Next.js', 'Intelligence Artificielle', 'Développement Web',
-  'Prompt Engineering', 'LLMs', 'Python', 'Architecture Logicielle',
+  'React', 'Next.js', 'Artificial Intelligence', 'Web Development',
+  'Prompt Engineering', 'LLMs', 'Python', 'Software Architecture',
   'TypeScript', 'API Design', 'Symfony', 'Node.js', 'Machine Learning',
-  'CSS Avancé', 'DevOps', 'Docker', 'PostgreSQL', 'UX Design',
+  'Advanced CSS', 'DevOps', 'Docker', 'PostgreSQL', 'UX Design',
 ]
 
 // ── Live indicator dot ────────────────────────────────────
@@ -294,9 +294,9 @@ export function Content() {
               className="font-sans"
               style={{ fontSize: 'clamp(16px,1.8vw,20px)', color: '#E8E8E0', lineHeight: 1.5, fontStyle: 'italic' }}
             >
-              "La complexité n'est pas un obstacle.
+              "Complexity is not an obstacle.
               <br />
-              C'est un angle de narration."
+              It's a narrative angle."
             </p>
             <span
               className="font-mono text-xs tracking-[0.15em]"

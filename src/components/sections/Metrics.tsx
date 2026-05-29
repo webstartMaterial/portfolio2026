@@ -36,12 +36,12 @@ function CountUp({
 
 // ── Metric card ────────────────────────────────────────────
 const METRICS = [
-  { value: 5000, suffix: '+', label: 'Apprenants formés',      color: '#00FF94', duration: 2.2, delay: 0    },
-  { value: 10,   suffix: '',  label: 'Années d\'expérience',   color: '#E8E8E0', duration: 1.4, delay: 0.15 },
-  { value: 4,    suffix: '',  label: 'Formats pédagogiques',   color: '#E8E8E0', duration: 0.8, delay: 0.3  },
-  { value: 50,   suffix: '+', label: 'Projets livrés',         color: '#4A9EFF', duration: 1.6, delay: 0.45 },
-  { value: 3,    suffix: '',  label: 'Piliers d\'expertise',   color: '#FFB800', duration: 0.6, delay: 0.6  },
-  { value: 12,   suffix: '+', label: 'Technologies maîtrisées',color: '#00FF94', duration: 1.2, delay: 0.75 },
+  { value: 5000, suffix: '+', label: 'Learners Trained',       color: '#00FF94', duration: 2.2, delay: 0    },
+  { value: 10,   suffix: '',  label: 'Years of Experience',    color: '#E8E8E0', duration: 1.4, delay: 0.15 },
+  { value: 4,    suffix: '',  label: 'Teaching Formats',       color: '#E8E8E0', duration: 0.8, delay: 0.3  },
+  { value: 50,   suffix: '+', label: 'Projects Delivered',     color: '#4A9EFF', duration: 1.6, delay: 0.45 },
+  { value: 3,    suffix: '',  label: 'Expertise Pillars',      color: '#FFB800', duration: 0.6, delay: 0.6  },
+  { value: 12,   suffix: '+', label: 'Technologies Mastered',  color: '#00FF94', duration: 1.2, delay: 0.75 },
 ] as const
 
 function MetricCard({
@@ -170,7 +170,7 @@ export function Metrics() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1, duration: 0.55, ease: EASE }}
         >
-          Rapport système.
+          System report.
         </motion.p>
 
         {/* ── Metrics grid ─────────────────────────────── */}
@@ -232,9 +232,9 @@ export function Metrics() {
               className="font-sans"
               style={{ fontSize: 'clamp(15px,1.6vw,19px)', color: '#E8E8E0', lineHeight: 1.5 }}
             >
-              Dev · Formateur · Créateur.
+              Dev · Instructor · Creator.
               <br />
-              <span style={{ color: '#ffffff' }}>Un profil, trois dimensions actives.</span>
+              <span style={{ color: '#ffffff' }}>One profile, three active dimensions.</span>
             </p>
             <div className="flex items-center gap-3 flex-wrap mt-1">
               {(['DEV', 'FORMATION', 'CONTENT'] as const).map((tag) => {
