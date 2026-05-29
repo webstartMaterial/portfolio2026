@@ -6,6 +6,13 @@ import { IDENTITY } from '@/data/portfolio'
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
+const SECTION_LINKS: Record<string, string> = {
+  fwdai:      '#fwdai',
+  dev:        '#dev',
+  instructor: '#teaching',
+  creator:    '#content',
+}
+
 // ── Status config ─────────────────────────────────────────
 const STATUS_CFG: Record<string, { color: string; label: string }> = {
   DEPLOYED:  { color: '#00FF94', label: 'DEPLOYED'  },
@@ -337,6 +344,40 @@ export function Identity() {
                   </div>
                 </div>
               )}
+
+              {/* ── Learn more button ───────────────────── */}
+              {SECTION_LINKS[activeDim.id] && (
+                <a
+                  href={SECTION_LINKS[activeDim.id]}
+                  className="font-mono"
+                  style={{
+                    display:         'inline-flex',
+                    alignItems:      'center',
+                    gap:             '10px',
+                    marginTop:       '32px',
+                    fontSize:        '11px',
+                    letterSpacing:   '0.18em',
+                    color:           STATUS_CFG[activeDim.status]?.color,
+                    border:          `1px solid ${STATUS_CFG[activeDim.status]?.color}35`,
+                    backgroundColor: `${STATUS_CFG[activeDim.status]?.color}07`,
+                    padding:         '10px 20px',
+                    textDecoration:  'none',
+                    transition:      'background-color 0.2s, border-color 0.2s',
+                    alignSelf:       'flex-start',
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = `${STATUS_CFG[activeDim.status]?.color}14`
+                    ;(e.currentTarget as HTMLElement).style.borderColor    = `${STATUS_CFG[activeDim.status]?.color}60`
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = `${STATUS_CFG[activeDim.status]?.color}07`
+                    ;(e.currentTarget as HTMLElement).style.borderColor    = `${STATUS_CFG[activeDim.status]?.color}35`
+                  }}
+                >
+                  LEARN MORE
+                  <span style={{ fontSize: '13px' }}>→</span>
+                </a>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>
@@ -399,6 +440,27 @@ export function Identity() {
                             <span key={f} className="font-mono text-xs px-2.5 py-1 border" style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.3)' }}>{f}</span>
                           ))}
                         </div>
+                      )}
+                      {SECTION_LINKS[dim.id] && (
+                        <a
+                          href={SECTION_LINKS[dim.id]}
+                          className="font-mono"
+                          style={{
+                            display:         'inline-flex',
+                            alignItems:      'center',
+                            gap:             '8px',
+                            fontSize:        '11px',
+                            letterSpacing:   '0.18em',
+                            color:           cfg.color,
+                            border:          `1px solid ${cfg.color}35`,
+                            backgroundColor: `${cfg.color}07`,
+                            padding:         '9px 18px',
+                            textDecoration:  'none',
+                            alignSelf:       'flex-start',
+                          }}
+                        >
+                          LEARN MORE <span style={{ fontSize: '13px' }}>→</span>
+                        </a>
                       )}
                     </div>
                   </motion.div>

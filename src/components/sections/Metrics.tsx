@@ -125,7 +125,7 @@ export function Metrics() {
       style={{
         backgroundColor: '#050505',
         paddingTop: 'clamp(40px,4.5vw,72px)',
-        paddingBottom: 'clamp(80px,9vw,144px)',
+        paddingBottom: 'clamp(40px,4.5vw,72px)',
       }}
     >
       {/* ── Dot grid background ──────────────────────────── */}

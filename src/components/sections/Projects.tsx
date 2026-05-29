@@ -331,7 +331,7 @@ export function Projects() {
       style={{
         backgroundColor: '#050505',
         paddingTop:      'clamp(40px,4.5vw,72px)',
-        paddingBottom:   'clamp(80px,9vw,144px)',
+        paddingBottom:   'clamp(40px,4.5vw,72px)',
         paddingLeft:     'clamp(48px,10vw,160px)',
         paddingRight:    'clamp(48px,10vw,160px)',
       }}

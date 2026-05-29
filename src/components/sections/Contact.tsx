@@ -125,7 +125,7 @@ export function Contact() {
       ref={sectionRef}
       className="relative w-full py-36 overflow-hidden"
       style={{
-        paddingTop:    'clamp(80px,9vw,144px)',
+        paddingTop:    'clamp(40px,4.5vw,72px)',
         overflow:      'hidden',
       }}
     >

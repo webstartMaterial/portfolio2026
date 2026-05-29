@@ -422,7 +422,7 @@ export function Content() {
       style={{
         backgroundColor: '#040404',
         paddingTop:      'clamp(40px,4.5vw,72px)',
-        paddingBottom:   'clamp(80px,9vw,144px)',
+        paddingBottom:   'clamp(40px,4.5vw,72px)',
       }}
     >
       {/* ── Section header ──────────────────────────────────── */}
