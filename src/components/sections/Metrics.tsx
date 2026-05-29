@@ -39,9 +39,9 @@ const METRICS = [
   { value: 5000, suffix: '+', label: 'Learners Trained',       color: '#00FF94', duration: 2.2, delay: 0    },
   { value: 10,   suffix: '',  label: 'Years of Experience',    color: '#E8E8E0', duration: 1.4, delay: 0.15 },
   { value: 4,    suffix: '',  label: 'Teaching Formats',       color: '#E8E8E0', duration: 0.8, delay: 0.3  },
-  { value: 50,   suffix: '+', label: 'Projects Delivered',     color: '#4A9EFF', duration: 1.6, delay: 0.45 },
-  { value: 3,    suffix: '',  label: 'Expertise Pillars',      color: '#FFB800', duration: 0.6, delay: 0.6  },
-  { value: 12,   suffix: '+', label: 'Technologies Mastered',  color: '#00FF94', duration: 1.2, delay: 0.75 },
+  { value: 20,   suffix: '+', label: 'Projects Delivered',     color: '#4A9EFF', duration: 1.6, delay: 0.45 },
+  { value: 4,    suffix: '',  label: 'Expertise Pillars',      color: '#FFB800', duration: 0.6, delay: 0.6  },
+  { value: 40,   suffix: '+', label: 'Technologies Mastered',  color: '#00FF94', duration: 1.2, delay: 0.75 },
 ] as const
 
 function MetricCard({
@@ -232,13 +232,13 @@ export function Metrics() {
               className="font-sans"
               style={{ fontSize: 'clamp(15px,1.6vw,19px)', color: '#E8E8E0', lineHeight: 1.5 }}
             >
-              Dev · Instructor · Creator.
+              AI · Dev · Instructor · Content Creator.
               <br />
-              <span style={{ color: '#ffffff' }}>One profile, three active dimensions.</span>
+              <span style={{ color: '#ffffff' }}>One profile, four active dimensions.</span>
             </p>
             <div className="flex items-center gap-3 flex-wrap mt-1">
-              {(['DEV', 'FORMATION', 'CONTENT'] as const).map((tag) => {
-                const colors: Record<string, string> = { DEV: '#00FF94', FORMATION: '#4A9EFF', CONTENT: '#FFB800' }
+              {(['AI', 'DEV', 'FORMATION', 'CONTENT_CONTENT'] as const).map((tag) => {
+                const colors: Record<string, string> = {AI: '#FF4D4D', DEV: '#00FF94', FORMATION: '#4A9EFF', CONTENT_CONTENT: '#FFB800' }
                 const c = colors[tag]
                 return (
                   <span

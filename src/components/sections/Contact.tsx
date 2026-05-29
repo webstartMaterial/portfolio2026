@@ -378,7 +378,7 @@ export function Contact() {
                 LOCATION
               </span>
               <span className="font-mono" style={{ fontSize: '12px', color: '#ffffff', letterSpacing: '0.05em' }}>
-                France / Remote
+                Dubai / Remote
               </span>
             </div>
           </motion.div>

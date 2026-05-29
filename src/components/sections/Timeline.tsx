@@ -35,7 +35,7 @@ const ENTRIES = [
     year:  '2016',
     log:   'FORK',
     title: 'Full Stack Developer — SOPRA STERIA',
-    desc:  'Java, Spring Batch. Enterprise projects for the French Government 🇫🇷.',
+    desc:  'Java, Spring Batch. Enterprise projects for the French Government.',
     tag:   'FULL STACK',
   },
   {
@@ -62,14 +62,14 @@ const ENTRIES = [
   {
     year:  '2020',
     log:   'SCALE',
-    title: 'Building of my Training Center',
+    title: 'Building of my Training Center - Web Start',
     desc:  'Job-ready programs for students, job seekers and professionals.',
     tag:   'TRAINING',
   },
   {
     year:  '2022',
     log:   'PUBLISH',
-    title: 'Launch of Académie WS',
+    title: 'Launch of my e-Learning platform - Académie WS',
     desc:  'E-learning platform. Educational videos. Tech storytelling at scale.',
     tag:   'EDTECH',
   },

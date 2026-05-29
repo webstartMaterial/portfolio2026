@@ -422,7 +422,8 @@ export function Hero() {
           transition={{ delay: 0.25, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className="flex items-center gap-4 flex-wrap"
         >
-          <button
+          <a
+            href='#identity'
             className="font-mono font-bold tracking-[0.14em] uppercase transition-all duration-200"
             style={{
               fontSize:        '11px',
@@ -441,9 +442,10 @@ export function Hero() {
             }}
           >
             {HERO.cta.primary}
-          </button>
+          </a>
 
-          <button
+          <a
+            href='#contact'
             className="font-mono font-medium tracking-[0.14em] uppercase transition-all duration-200"
             style={{
               fontSize:   '11px',
@@ -462,7 +464,7 @@ export function Hero() {
             }}
           >
             {HERO.cta.secondary}
-          </button>
+          </a>
         </motion.div>
       </div>
 
