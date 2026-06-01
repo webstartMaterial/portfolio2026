@@ -110,11 +110,22 @@ export function Contact() {
   const [message, setMessage] = useState('')
   const [status,  setStatus]  = useState<Status>('idle')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!name || !email || !message || status !== 'idle') return
     setStatus('sending')
-    setTimeout(() => setStatus('sent'), 1800)
+    try {
+      const res = await fetch('/api/contact', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ name, email, message }),
+      })
+      if (!res.ok) throw new Error('Send failed')
+      setStatus('sent')
+    } catch {
+      setStatus('idle')
+      alert('Something went wrong. Please try again or email me directly.')
+    }
   }
 
   const disabled = status !== 'idle'
