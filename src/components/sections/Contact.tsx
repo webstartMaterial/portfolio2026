@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
@@ -115,12 +116,12 @@ export function Contact() {
     if (!name || !email || !message || status !== 'idle') return
     setStatus('sending')
     try {
-      const res = await fetch('/api/contact', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify({ name, email, message }),
-      })
-      if (!res.ok) throw new Error('Send failed')
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        { from_name: name, from_email: email, message },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      )
       setStatus('sent')
     } catch {
       setStatus('idle')
