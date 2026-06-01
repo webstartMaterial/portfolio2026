@@ -52,6 +52,27 @@ export function Navbar({ showDelay = 4.0 }: { showDelay?: number }) {
             </a>
           </li>
         ))}
+
+        {/* Download CV — juste après CONTACT */}
+        <li>
+          <a
+            href="/samih-habbani-cv.pdf"
+            download
+            className="group relative flex items-center gap-1.5 font-mono text-[10px] font-bold tracking-[0.2em] text-[#030303] overflow-hidden rounded-sm transition-transform duration-150 hover:scale-105 active:scale-95"
+            style={{ backgroundColor: '#00FF94', boxShadow: '0 0 12px rgba(0,255,148,0.25)', padding: '6px 14px' }}
+          >
+            {/* shimmer sweep */}
+            <span
+              className="pointer-events-none absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"
+              style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)' }}
+            />
+            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="flex-shrink-0">
+              <path d="M7 1.5v7M7 8.5 4.5 6M7 8.5 9.5 6" stroke="#030303" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M2 11.5h10" stroke="#030303" strokeWidth="1.7" strokeLinecap="round"/>
+            </svg>
+            CV
+          </a>
+        </li>
       </ul>
     </motion.nav>
   )
