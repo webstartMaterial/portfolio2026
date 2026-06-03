@@ -48,7 +48,7 @@ function PortraitPanel({ visible }: { visible: boolean }) {
       {/* Next.js Image — fill parent */}
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
         <Image
-          src="/samih.jpg"
+          src="/samih.webp"
           alt="Samih Habbani"
           fill
           priority
