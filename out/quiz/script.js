@@ -81,6 +81,7 @@ let state = loadState();
 let quizQuestions = [];
 let currentQuestionIndex = 0;
 let userAnswers = [];
+let studentName = "";
 
 const screens = document.querySelectorAll(".screen");
 const tabs = document.querySelectorAll(".tab");
@@ -257,12 +258,50 @@ function startQuiz() {
     alert("Please add at least 1 question before starting the quiz.");
     return;
   }
+  openNameModal();
+}
+
+function openNameModal() {
+  const modal = document.getElementById("name-modal");
+  document.getElementById("student-firstname").value = "";
+  document.getElementById("student-lastname").value = "";
+  modal.style.display = "flex";
+  document.getElementById("student-firstname").focus();
+}
+
+function closeNameModal() {
+  document.getElementById("name-modal").style.display = "none";
+}
+
+function launchQuiz() {
+  const first = document.getElementById("student-firstname").value.trim();
+  const last  = document.getElementById("student-lastname").value.trim();
+  if (!first || !last) {
+    document.getElementById("student-firstname").focus();
+    document.getElementById("student-firstname").style.borderColor = first ? "" : "var(--danger)";
+    document.getElementById("student-lastname").style.borderColor  = last  ? "" : "var(--danger)";
+    return;
+  }
+  studentName = `${first} ${last}`;
+  closeNameModal();
   quizQuestions = [...state.questions];
   currentQuestionIndex = 0;
   userAnswers = Array(quizQuestions.length).fill(undefined);
   renderQuiz();
   showScreen("quiz-screen");
 }
+
+document.getElementById("modal-start").addEventListener("click", launchQuiz);
+document.getElementById("modal-cancel").addEventListener("click", closeNameModal);
+document.getElementById("name-modal").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) closeNameModal();
+});
+["student-firstname", "student-lastname"].forEach(id => {
+  document.getElementById(id).addEventListener("keydown", (e) => {
+    if (e.key === "Enter") launchQuiz();
+    document.getElementById(id).style.borderColor = "";
+  });
+});
 
 function renderQuiz() {
   const total = quizQuestions.length;
@@ -309,6 +348,8 @@ function renderResults() {
   const total = quizQuestions.length;
   const score = getScore();
   const percentage = Math.round((score / total) * 100);
+  const nameDisplay = document.getElementById("student-name-display");
+  nameDisplay.textContent = studentName ? studentName : "";
   document.getElementById("final-score").textContent = `Your score: ${score}/${total}`;
   document.getElementById("percentage-grade").textContent = `${percentage}%`;
   document.getElementById("correct-count").textContent = `${score} correct`;
@@ -357,6 +398,10 @@ function downloadPdf() {
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(11);
+  if (studentName) {
+    doc.text(`Student: ${studentName}`, 14, y);
+    y += 7;
+  }
   doc.text(`Date: ${new Date().toLocaleDateString()}`, 14, y);
   y += 7;
   doc.text(`Final grade: ${score}/${total} (${percentage}%)`, 14, y);

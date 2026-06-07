@@ -225,6 +225,45 @@ input:focus, textarea:focus, select:focus {
 .badge-correct { color: var(--success); font-weight: 800; }
 .badge-wrong { color: var(--danger); font-weight: 800; }
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 28, 50, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal-card {
+  background: white;
+  border-radius: 28px;
+  padding: clamp(28px, 5vw, 48px);
+  box-shadow: 0 32px 80px rgba(20, 28, 50, 0.22);
+  max-width: 480px;
+  width: 100%;
+}
+
+.modal-card h2 { font-size: clamp(22px, 4vw, 30px); margin-bottom: 8px; }
+
+.modal-subtitle { color: var(--muted); margin: 0 0 24px; line-height: 1.5; }
+
+.modal-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.student-name-display {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0 0 4px;
+}
+
 .import-zone {
   display: flex;
   flex-wrap: wrap;
@@ -279,6 +318,6 @@ input:focus, textarea:focus, select:focus {
   .hero, .section-heading, .question-item-header { flex-direction: column; }
   .hero, section, .question-editor, .quiz-card, .results-hero { padding: 20px; border-radius: 22px; }
   .hero-card { width: 100%; }
-  .form-grid, .answers-grid { grid-template-columns: 1fr; }
+  .form-grid, .answers-grid, .modal-fields { grid-template-columns: 1fr; }
   .progress-line { flex-direction: column; }
 }
