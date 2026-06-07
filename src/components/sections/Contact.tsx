@@ -416,9 +416,25 @@ export function Contact() {
         <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.2em' }}>
           © 2026 SAMIH HABBANI
         </span>
-        <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.15em' }}>
-          Hello World · v1.0.0
-        </span>
+        <a
+          href="/quiz"
+          className="font-mono"
+          style={{
+            fontSize:      '10px',
+            color:         '#ffffff',
+            letterSpacing: '0.15em',
+            textDecoration:'none',
+            display:       'flex',
+            alignItems:    'center',
+            gap:           '6px',
+            transition:    'color 0.2s',
+          }}
+          onMouseEnter={e => (e.currentTarget.style.color = '#00FF94')}
+          onMouseLeave={e => (e.currentTarget.style.color = '#ffffff')}
+        >
+          <span style={{ fontSize: '9px' }}>↗</span>
+          EXAM QUIZ BUILDER
+        </a>
         <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.15em' }}>
           BUILT WITH NEXT.JS · FRAMER MOTION
         </span>
