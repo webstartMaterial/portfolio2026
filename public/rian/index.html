@@ -82,6 +82,39 @@ body{background:#f5e642;font-family:'Nunito',sans-serif;overflow:hidden;width:10
   cursor:pointer;transition:transform .1s;
 }
 .ov-btn:hover{transform:scale(1.05);}
+
+/* ── MOBILE BUTTONS ──────────────────────── */
+.mBtn{
+  width:68px;height:68px;
+  border-radius:50%;
+  font-size:1.6rem;line-height:1;
+  background:rgba(0,0,0,.45);
+  border:3px solid rgba(255,255,255,.5);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+  user-select:none;
+  transition:background .1s,transform .1s;
+  box-shadow:0 4px 14px rgba(0,0,0,.4);
+}
+.mBtn:active,.mBtn.pressed{
+  background:rgba(255,255,255,.25);
+  transform:scale(.92);
+}
+.mBtnJump{
+  width:80px;height:80px;font-size:1.9rem;
+  background:rgba(230,48,48,.55);
+  border-color:#e63030;
+  box-shadow:0 4px 18px rgba(230,48,48,.5);
+}
+.mBtnSpecial{
+  background:rgba(90,0,160,.55);
+  border-color:#9b30ff;
+  box-shadow:0 4px 14px rgba(155,48,255,.5);
+  font-size:1.3rem;
+}
 </style>
 </head>
 <body>
@@ -96,6 +129,23 @@ body{background:#f5e642;font-family:'Nunito',sans-serif;overflow:hidden;width:10
 
 <!-- GAME CANVAS -->
 <canvas id="gameCanvas"></canvas>
+
+<!-- MOBILE CONTROLS (shown only during gameplay) -->
+<div id="mobileControls" style="display:none;position:fixed;inset:0;pointer-events:none;z-index:5;">
+
+  <!-- Left / Right -->
+  <div style="position:absolute;bottom:28px;left:18px;display:flex;gap:10px;pointer-events:all;">
+    <button class="mBtn" id="btnLeft">◀</button>
+    <button class="mBtn" id="btnRight">▶</button>
+  </div>
+
+  <!-- Jump + Special -->
+  <div style="position:absolute;bottom:28px;right:18px;display:flex;flex-direction:column;gap:10px;align-items:flex-end;pointer-events:all;">
+    <button class="mBtn mBtnSpecial" id="btnSpecial">✦</button>
+    <button class="mBtn mBtnJump" id="btnJump">▲</button>
+  </div>
+
+</div>
 
 <!-- WIN -->
 <div class="overlay" id="winScreen">
@@ -422,6 +472,44 @@ window.addEventListener('keydown',e=>{
 });
 window.addEventListener('keyup',e=>{ keys[e.code]=false; });
 
+// ── Mobile button wiring ──────────────────
+function bindMobileBtn(id, code){
+  const btn = document.getElementById(id);
+  if(!btn) return;
+  const press = e => {
+    e.preventDefault();
+    keys[code] = true;
+    btn.classList.add('pressed');
+    // Resume AudioContext on first touch
+    if(audioCtx && audioCtx.state==='suspended') audioCtx.resume();
+  };
+  const release = e => {
+    e.preventDefault();
+    keys[code] = false;
+    btn.classList.remove('pressed');
+  };
+  btn.addEventListener('touchstart', press,   {passive:false});
+  btn.addEventListener('touchend',   release, {passive:false});
+  btn.addEventListener('touchcancel',release, {passive:false});
+  // Also support mouse for testing on desktop
+  btn.addEventListener('mousedown', press);
+  btn.addEventListener('mouseup',   release);
+  btn.addEventListener('mouseleave',release);
+}
+
+function initMobileControls(){
+  bindMobileBtn('btnLeft',    'ArrowLeft');
+  bindMobileBtn('btnRight',   'ArrowRight');
+  bindMobileBtn('btnJump',    'Space');
+  bindMobileBtn('btnSpecial', 'KeyX');
+}
+initMobileControls();
+
+// Show mobile controls only during gameplay on touch devices
+function isTouchDevice(){ return navigator.maxTouchPoints > 0; }
+function showMobileControls(){ if(isTouchDevice()) document.getElementById('mobileControls').style.display='block'; }
+function hideMobileControls(){ document.getElementById('mobileControls').style.display='none'; }
+
 // ── Level data ──────────────────────────────
 const PLATFORMS = [
   // Ground
@@ -497,6 +585,7 @@ function startGame(){
   getAudio(); // unlock AudioContext on user gesture
   document.getElementById('selectScreen').style.display='none';
   canvas.style.display='block';
+  showMobileControls();
   resize();
   initGame();
   requestAnimationFrame(loop);
@@ -1308,6 +1397,7 @@ function drawProjectile(p){
 // ═══════════════════════════════════════════════
 function showWin(count,time){
   running=false;
+  hideMobileControls();
   stopBgMusic();
   SFX.win();
   document.getElementById('winSub').textContent=
@@ -1317,6 +1407,7 @@ function showWin(count,time){
 
 function showLose(reason){
   running=false;
+  hideMobileControls();
   stopBgMusic();
   SFX.lose();
   document.getElementById('loseSub').textContent=
