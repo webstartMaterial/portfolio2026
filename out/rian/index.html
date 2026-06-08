@@ -113,6 +113,132 @@ body{background:#f5e642;font-family:'Nunito',sans-serif;overflow:hidden;width:10
 
 <script>
 // ═══════════════════════════════════════════════
+//  AUDIO ENGINE (Web Audio API — no files needed)
+// ═══════════════════════════════════════════════
+let audioCtx = null;
+
+function getAudio(){
+  if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+  return audioCtx;
+}
+
+// Resume context on first interaction (browser autoplay policy)
+document.addEventListener('click', ()=>{ if(audioCtx && audioCtx.state==='suspended') audioCtx.resume(); }, {once:false});
+document.addEventListener('keydown',()=>{ if(audioCtx && audioCtx.state==='suspended') audioCtx.resume(); }, {once:false});
+
+function playTone(freq, type, duration, vol=0.3, delay=0, freqEnd=null){
+  const ac = getAudio();
+  const osc = ac.createOscillator();
+  const gain = ac.createGain();
+  osc.connect(gain); gain.connect(ac.destination);
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, ac.currentTime + delay);
+  if(freqEnd) osc.frequency.exponentialRampToValueAtTime(freqEnd, ac.currentTime + delay + duration);
+  gain.gain.setValueAtTime(vol, ac.currentTime + delay);
+  gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + delay + duration);
+  osc.start(ac.currentTime + delay);
+  osc.stop(ac.currentTime + delay + duration);
+}
+
+function playNoise(duration, vol=0.15, highpass=800){
+  const ac = getAudio();
+  const buf = ac.createBuffer(1, ac.sampleRate * duration, ac.sampleRate);
+  const data = buf.getChannelData(0);
+  for(let i=0;i<data.length;i++) data[i] = Math.random()*2-1;
+  const src = ac.createBufferSource();
+  src.buffer = buf;
+  const filter = ac.createBiquadFilter();
+  filter.type = 'highpass';
+  filter.frequency.value = highpass;
+  const gain = ac.createGain();
+  gain.gain.setValueAtTime(vol, ac.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + duration);
+  src.connect(filter); filter.connect(gain); gain.connect(ac.destination);
+  src.start(); src.stop(ac.currentTime + duration);
+}
+
+// ── Sound effects ──────────────────────────────
+const SFX = {
+  jump(){
+    playTone(180, 'square', 0.06, 0.25);
+    playTone(340, 'square', 0.1,  0.2, 0.04, 520);
+  },
+  land(){
+    playNoise(0.06, 0.12, 400);
+    playTone(80, 'sine', 0.08, 0.2);
+  },
+  collectGold(){
+    playTone(660, 'sine', 0.08, 0.25);
+    playTone(880, 'sine', 0.08, 0.25, 0.08);
+    playTone(1100,'sine', 0.12, 0.2,  0.16);
+  },
+  stomp(){
+    playTone(200, 'square', 0.05, 0.3);
+    playTone(100, 'square', 0.1,  0.25, 0.05, 60);
+    playNoise(0.08, 0.2, 600);
+  },
+  hit(){
+    playTone(200, 'sawtooth', 0.05, 0.35);
+    playTone(120, 'sawtooth', 0.12, 0.3,  0.05, 80);
+    playNoise(0.1, 0.25, 300);
+  },
+  batarang(){
+    playTone(600, 'sawtooth', 0.04, 0.15);
+    playTone(400, 'sawtooth', 0.08, 0.12, 0.04, 250);
+  },
+  shield(){
+    playTone(440, 'sine', 0.06, 0.2);
+    playTone(660, 'sine', 0.1,  0.2, 0.06);
+    playTone(880, 'sine', 0.15, 0.2, 0.12);
+  },
+  dash(){
+    playTone(300, 'sawtooth', 0.04, 0.3, 0,    800);
+    playNoise(0.06, 0.15, 1000);
+  },
+  pie(){
+    playTone(400, 'sine', 0.04, 0.2);
+    playTone(320, 'sine', 0.04, 0.2, 0.04);
+    playTone(500, 'square',0.08, 0.15, 0.08);
+  },
+  superpunch(){
+    playNoise(0.05, 0.3, 500);
+    playTone(150, 'square', 0.12, 0.3, 0.03, 80);
+    playTone(300, 'square', 0.06, 0.2);
+  },
+  win(){
+    const melody=[523,659,784,1047];
+    melody.forEach((f,i)=> playTone(f,'sine',0.18,0.35,i*0.18));
+    playTone(1047,'sine',0.4,0.35,melody.length*0.18);
+  },
+  lose(){
+    playTone(300,'sawtooth',0.12,0.3);
+    playTone(240,'sawtooth',0.12,0.3,0.14);
+    playTone(180,'sawtooth',0.18,0.3,0.28);
+    playTone(120,'sawtooth',0.3, 0.3,0.46);
+  }
+};
+
+// Simple background music loop (chiptune)
+let bgMusicTimer=0, bgMusicInterval=null;
+const BG_MELODY=[
+  [330,0.12],[0,0.06],[440,0.12],[0,0.06],
+  [392,0.12],[330,0.12],[294,0.18],[0,0.12],
+  [392,0.12],[0,0.06],[523,0.12],[0,0.06],
+  [494,0.12],[440,0.12],[392,0.3], [0,0.18],
+];
+let bgNoteIdx=0;
+function tickBgMusic(){
+  if(!running) return;
+  const [freq, dur] = BG_MELODY[bgNoteIdx % BG_MELODY.length];
+  if(freq>0) playTone(freq,'square',dur*0.85,0.06);
+  bgNoteIdx++;
+  const nextDur = BG_MELODY[bgNoteIdx % BG_MELODY.length][1];
+  bgMusicTimer = setTimeout(tickBgMusic, nextDur*1000);
+}
+function startBgMusic(){ bgNoteIdx=0; tickBgMusic(); }
+function stopBgMusic(){ clearTimeout(bgMusicTimer); }
+
+// ═══════════════════════════════════════════════
 //  CHARACTERS
 // ═══════════════════════════════════════════════
 const HEROES = [
@@ -368,6 +494,7 @@ for(let i=0;i<12;i++){
 // ═══════════════════════════════════════════════
 function startGame(){
   if(!selectedHero) return;
+  getAudio(); // unlock AudioContext on user gesture
   document.getElementById('selectScreen').style.display='none';
   canvas.style.display='block';
   resize();
@@ -377,6 +504,7 @@ function startGame(){
 
 function initGame(){
   running=true; gameTimer=0; lastTime=null;
+  stopBgMusic(); startBgMusic();
 
   camera={x:0};
 
@@ -452,6 +580,7 @@ function update(dt){
         player.vy=JUMP_FORCE*player.hero.jumpMult;
         player.jumpsLeft--;
         player.isFlying=false;
+        SFX.jump();
       }
     }
     if(!(keys['Space']||keys['ArrowUp']||keys['KeyW'])) keys['_jumpHeld']=false;
@@ -579,6 +708,7 @@ function update(dt){
     if(!g.carriedBy && rectsOverlapXY(player.x,player.y,player.w,player.h,g.x,g.y,g.w,g.h)){
       g.collected=true; collectedCount++;
       spawnParticlesAt(g.x+13,g.y+9,'#f5e642',12);
+      SFX.collectGold();
     }
   }
 
@@ -619,22 +749,26 @@ function doSpecial(){
   player.specialCooldown=2.5;
   if(h.id==='batman'){
     projectiles.push({x:player.x+player.w/2,y:player.y+20,vx:player.facing*700,vy:-60,life:1.5,type:'batarang',rot:0});
+    SFX.batarang();
   } else if(h.id==='gl'){
     player.shieldTimer=2.5;
     spawnParticlesAt(player.x+14,player.y+30,'#69ff47',20);
+    SFX.shield();
   } else if(h.id==='flash'){
     player.vx=player.facing*900; player.specialCooldown=1;
     spawnParticlesAt(player.x+14,player.y+30,'#c62828',15);
+    SFX.dash();
   } else if(h.id==='joker'){
     projectiles.push({x:player.x+player.w/2,y:player.y+20,vx:player.facing*500,vy:-80,life:1.2,type:'pie',rot:0});
+    SFX.pie();
   } else if(h.id==='superman'){
-    // Super punch — stun all nearby henchmen
     for(const en of henchmen){
       if(!en.dead && Math.abs(en.x-player.x)<180){
         en.confusedTimer=2; en.confused=true;
         spawnParticlesAt(en.x+12,en.y+26,'#f5e642',10);
       }
     }
+    SFX.superpunch();
   }
 }
 
@@ -644,6 +778,7 @@ function stompHenchman(h){
   if(h.carrying){ h.carrying.carriedBy=null; h.carrying=null; }
   spawnParticlesAt(h.x+12,h.y+26,'#6a1b9a',18);
   spawnParticlesAt(h.x+12,h.y+26,'#69ff47',10);
+  SFX.stomp();
 }
 
 function loseLife(){
@@ -652,6 +787,7 @@ function loseLife(){
   player.hitTimer=1.5;
   player.vy=-350;
   spawnParticlesAt(player.x+14,player.y+30,'#e63030',16);
+  SFX.hit();
 }
 
 // ── Platform collision ──────────────────────
@@ -667,8 +803,12 @@ function platformCollide(obj){
       const dBottom= (p.y+p.h)-obj.y;
       const minD   = Math.min(dLeft,dRight,dTop,dBottom);
       if(minD===dTop && obj.vy>=0){
+        const wasAirborne = !obj.onGround;
         obj.y=p.y-obj.h; obj.vy=0; obj.onGround=true;
-        if(obj===player){ player.jumpsLeft=player.hero.id==='superman'?2:1; }
+        if(obj===player){
+          player.jumpsLeft=player.hero.id==='superman'?2:1;
+          if(wasAirborne) SFX.land();
+        }
       } else if(minD===dBottom && obj.vy<0){ obj.y=p.y+p.h; obj.vy=0; }
       else if(minD===dLeft)  obj.x=p.x-obj.w;
       else if(minD===dRight) obj.x=p.x+p.w;
@@ -1168,6 +1308,8 @@ function drawProjectile(p){
 // ═══════════════════════════════════════════════
 function showWin(count,time){
   running=false;
+  stopBgMusic();
+  SFX.win();
   document.getElementById('winSub').textContent=
     `All ${count} gold bars recovered in ${Math.floor(time)}s! The city is safe! 🌟`;
   document.getElementById('winScreen').style.display='flex';
@@ -1175,6 +1317,8 @@ function showWin(count,time){
 
 function showLose(reason){
   running=false;
+  stopBgMusic();
+  SFX.lose();
   document.getElementById('loseSub').textContent=
     reason==='stolen'?'Joker\'s henchmen stole all the gold!':'You ran out of lives...';
   document.getElementById('loseScreen').style.display='flex';
