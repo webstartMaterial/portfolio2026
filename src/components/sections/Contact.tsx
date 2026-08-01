@@ -196,15 +196,24 @@ export function Contact() {
         {/* ── Two-col layout ────────────────────────────── */}
         <div
           style={{
-            display:             'grid',
-            gridTemplateColumns: 'minmax(0,1fr) minmax(0,340px)',
-            gap:                 '1px',
-            background:          'rgba(255,255,255,0.04)',
-            marginBottom:        '0',
+            display:      'flex',
+            alignItems:   'stretch',
+            gap:          '1px',
+            background:   'rgba(255,255,255,0.04)',
+            marginBottom: '0',
           }}
           className="flex-col-on-mobile"
         >
-          {/* ── Form col ─────────────────────────────── */}
+          {/* ── Left col: form + info ───────────────────── */}
+          <div
+            style={{
+              flex:          '1.15 1 0%',
+              display:       'flex',
+              flexDirection: 'column',
+              gap:           '1px',
+            }}
+          >
+          {/* ── Form ─────────────────────────────── */}
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 16 }}
@@ -300,47 +309,32 @@ export function Contact() {
             </div>
           </motion.form>
 
-          {/* ── Sidebar col ──────────────────────────── */}
+          {/* ── Info panel ───────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.35, duration: 0.55, ease: EASE }}
+            transition={{ delay: 0.4, duration: 0.55, ease: EASE }}
             style={{
               backgroundColor: '#080808',
               padding:         'clamp(28px,4vw,48px)',
               display:         'flex',
               flexDirection:   'column',
-              gap:             '28px',
+              gap:             '24px',
             }}
           >
-            {/* Status */}
-            <div>
-              <span className="font-mono" style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>
-                STATUS
-              </span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#00FF94', display: 'inline-block' }} />
-                <span className="font-mono" style={{ fontSize: '12px', color: '#00FF94', letterSpacing: '0.1em' }}>
-                  AVAILABLE
-                </span>
-              </div>
-            </div>
-
-            <div style={{ height: '1px', backgroundColor: 'rgba(255,255,255,0.05)' }} />
-
             {/* Email */}
             <div>
               <span className="font-mono" style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '0.2em', display: 'block', marginBottom: '8px' }}>
                 EMAIL
               </span>
               <a
-                href="mailto:samih.habbani@gmail.com"
+                href="mailto:samihhabbani@gmail.com"
                 className="font-mono"
                 style={{ fontSize: '12px', color: '#C8C8C0', letterSpacing: '0.04em', textDecoration: 'none', transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#00FF94')}
                 onMouseLeave={e => (e.currentTarget.style.color = '#C8C8C0')}
               >
-                samih.habbani@gmail.com
+                samihhabbani@gmail.com
               </a>
             </div>
 
@@ -351,7 +345,7 @@ export function Contact() {
               <span className="font-mono" style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '0.2em', display: 'block', marginBottom: '12px' }}>
                 LINKS
               </span>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div style={{ display: 'flex', gap: '20px' }}>
                 {[
                   { label: 'LinkedIn', href: 'https://linkedin.com/in/samih-habbani' },
                   { label: 'GitHub',   href: 'https://github.com/samihhabbani' },
@@ -392,6 +386,127 @@ export function Contact() {
               <span className="font-mono" style={{ fontSize: '12px', color: '#ffffff', letterSpacing: '0.05em' }}>
                 Dubai / Remote
               </span>
+            </div>
+          </motion.div>
+          </div>
+
+          {/* ── Video col ────────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.35, duration: 0.55, ease: EASE }}
+            style={{
+              flex:            '0.85 1 0%',
+              backgroundColor: '#080808',
+              position:        'relative',
+            }}
+          >
+            {/* Video feed — absolutely positioned so it inherits the stretched
+                column height instead of dictating its own via aspect-ratio */}
+            <div
+              style={{
+                position:        'absolute',
+                inset:           'clamp(28px,4vw,48px)',
+                border:          '1px solid rgba(0,255,148,0.15)',
+                backgroundColor: '#000000',
+                overflow:        'hidden',
+              }}
+            >
+              <video
+                src="/samih-intro.mp4"
+                poster="/samih-intro-poster.jpg"
+                controls
+                autoPlay
+                muted
+                loop
+                preload="auto"
+                playsInline
+                style={{
+                  width:    '100%',
+                  height:   '100%',
+                  objectFit:'cover',
+                  display:  'block',
+                  filter:   'contrast(1.08) saturate(1.2) hue-rotate(-6deg) brightness(0.95)',
+                }}
+              />
+
+              {/* Scanlines */}
+              <div
+                style={{
+                  position:        'absolute',
+                  inset:           0,
+                  pointerEvents:   'none',
+                  backgroundImage: 'repeating-linear-gradient(0deg, rgba(0,255,148,0.06) 0px, rgba(0,255,148,0.06) 1px, transparent 1px, transparent 3px)',
+                  mixBlendMode:    'overlay',
+                }}
+              />
+
+              {/* Vignette */}
+              <div
+                style={{
+                  position:      'absolute',
+                  inset:         0,
+                  pointerEvents: 'none',
+                  boxShadow:     'inset 0 0 50px 14px rgba(0,0,0,0.55)',
+                }}
+              />
+
+              {/* Corner brackets */}
+              {[
+                { top: '8px', left: '8px', borderWidth: '1px 0 0 1px' },
+                { top: '8px', right: '8px', borderWidth: '1px 1px 0 0' },
+                { bottom: '8px', left: '8px', borderWidth: '0 0 1px 1px' },
+                { bottom: '8px', right: '8px', borderWidth: '0 1px 1px 0' },
+              ].map((pos, i) => (
+                <div
+                  key={i}
+                  style={{
+                    position:      'absolute',
+                    width:         '14px',
+                    height:        '14px',
+                    borderColor:   'rgba(0,255,148,0.6)',
+                    borderStyle:   'solid',
+                    pointerEvents: 'none',
+                    ...pos,
+                  }}
+                />
+              ))}
+
+              {/* REC badge */}
+              <div
+                style={{
+                  position:      'absolute',
+                  top:           '14px',
+                  left:          '20px',
+                  display:       'flex',
+                  alignItems:    'center',
+                  gap:           '6px',
+                  pointerEvents: 'none',
+                }}
+              >
+                <motion.span
+                  style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#FF5C5C' }}
+                  animate={{ opacity: [1, 0.2, 1] }}
+                  transition={{ repeat: Infinity, duration: 1.3, ease: 'easeInOut' }}
+                />
+                <span className="font-mono" style={{ fontSize: '8px', color: '#ffffff', letterSpacing: '0.2em' }}>
+                  REC
+                </span>
+              </div>
+
+              {/* Feed label */}
+              <div
+                style={{
+                  position:      'absolute',
+                  bottom:        '14px',
+                  left:          '20px',
+                  pointerEvents: 'none',
+                }}
+              >
+                <span className="font-mono" style={{ fontSize: '8px', color: '#00FF94', letterSpacing: '0.15em', opacity: 0.85 }}>
+                  FEED::SAMIH_HABBANI
+                </span>
+              </div>
             </div>
           </motion.div>
         </div>

@@ -91,7 +91,7 @@ const ENTRIES = [
     year:  '2026',
     log:   'CURRENT',
     title: 'Dubai — New Runtime',
-    desc:  'AI + code + education + content. Everything converges.',
+    desc:  'AI & coding trainer. Business development for TheKidSpace, Logiscool, Morgan International.',
     tag:   'NOW',
     current: true,
   },
