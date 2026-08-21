@@ -170,7 +170,9 @@ function ProjectCard({
     ? (project as typeof project & { screenshot?: string }).screenshot
     : undefined
 
-  return (
+  const hasUrl = 'url' in project && project.url
+
+  const content = (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -190,6 +192,7 @@ function ProjectCard({
         display:         'flex',
         flexDirection:   'column' as const,
         cursor:          'pointer',
+        height:          '100%',
       }}
     >
       {/* Screenshot background (per card) */}
@@ -309,6 +312,21 @@ function ProjectCard({
       </div>
     </motion.article>
   )
+
+  if (hasUrl) {
+    return (
+      <a
+        href={(project as typeof project & { url?: string }).url}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: 'none', display: 'block', height: '100%' }}
+      >
+        {content}
+      </a>
+    )
+  }
+
+  return content
 }
 
 // ── Main export ───────────────────────────────────────────

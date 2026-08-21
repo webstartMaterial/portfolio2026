@@ -76,9 +76,20 @@ export const PROJECTS = [
     stack:      ['Tailwind', 'Symfony 6', 'MySQL', 'Webpack Encore'],
     year:       '2026',
     screenshot: '/project3.webp',
+    url:        'https://syrama-services.com/',
   },
   {
     id:         '002',
+    status:     'DEPLOYED',
+    title:      'Syrama Yachting',
+    desc:       'Luxury yacht services and bookings platform for exclusive Mediterranean experiences.',
+    stack:      ['React', 'Next.js', 'Tailwind', 'Node.js'],
+    year:       '2026',
+    screenshot: '/project3.webp',
+    url:        'https://www.syrama-yachting.com/',
+  },
+  {
+    id:         '003',
     status:     'DEPLOYED',
     title:      'Académie WS — LMS Platform',
     desc:       'Custom online learning platform with adaptive pathways, progress tracking and instructor tools.',
@@ -87,7 +98,7 @@ export const PROJECTS = [
     screenshot: '/project1.webp',
   },
     {
-    id:         '003',
+    id:         '004',
     status:     'DEPLOYED',
     title:      'Itecom Art Design',
     desc:       'Custom school management platform for ITECOM Art Design — schedules, attendance, delays, transfers and internal administration workflows.',
@@ -96,7 +107,7 @@ export const PROJECTS = [
     screenshot: '/project6.webp',
   },
   {
-    id:         '004',
+    id:         '005',
     status:     'DEPLOYED',
     title:      'VSP Security',
     desc:       'Corporate website for a private security company — security services, fire safety, dog-handling units and event security across France.',
@@ -105,7 +116,7 @@ export const PROJECTS = [
     screenshot: '/project6.webp',
   },
   {
-    id:         '005',
+    id:         '006',
     status:     'DEPLOYED',
     title:      'Exissia — IT Solutions',
     desc:       'Corporate website for an IT consulting firm specialising in agile squads and digital transformation.',
@@ -114,7 +125,7 @@ export const PROJECTS = [
     screenshot: '/project2.webp',
   },
   {
-    id:         '006',
+    id:         '007',
     status:     'DEPLOYED',
     title:      'Instant Chic — Photobooth Rental',
     desc:       'Marketing website for a photobooth and photo animation rental service for events and weddings.',
@@ -123,7 +134,7 @@ export const PROJECTS = [
     screenshot: '/project4.webp',
   },
   {
-    id:         '007',
+    id:         '008',
     status:     'DEPLOYED',
     title:      'Click&Visible',
     desc:       'Multilingual corporate website for a web and mobile development agency.',
@@ -132,7 +143,7 @@ export const PROJECTS = [
     screenshot: '/project5.webp',
   },
   {
-    id:         '008',
+    id:         '009',
     status:     'DEPLOYED',
     title:      'Internal CRM & Operations Platform',
     desc:       'Custom internal CRM for small businesses — clients, follow-ups, planning, tasks and daily operations.',
