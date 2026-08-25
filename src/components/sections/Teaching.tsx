@@ -337,8 +337,8 @@ export function Teaching() {
         style={{ position: 'relative', zIndex: 1, marginBottom: '64px' }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#4A9EFF', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#4A9EFF', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
             05 · TEACH
           </span>
           <span className="font-mono" style={{

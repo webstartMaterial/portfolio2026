@@ -442,11 +442,11 @@ export function ForwardDeployed() {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5 }}
-        style={{ position: 'relative', zIndex: 1, marginBottom: '56px' }}
+        style={{ position: 'relative', zIndex: 1, marginBottom: '64px' }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#00D4FF', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#00D4FF', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
             03 · FWDAI
           </span>
           <span

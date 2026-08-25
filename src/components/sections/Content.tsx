@@ -428,13 +428,13 @@ export function Content() {
       {/* ── Section header ──────────────────────────────────── */}
       <div style={{ paddingLeft: 'clamp(48px,10vw,160px)', paddingRight: 'calc(50% + 24px)', marginBottom: '40px', position: 'relative', zIndex: 1 }}>
         <motion.div
-          style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px' }}
+          style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '64px' }}
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#FFB800', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#FFB800', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
             06 · CONTENT CREATOR
           </span>
           <span

@@ -43,6 +43,12 @@ const CAPABILITIES = [
 
 const CONTEXTS = ['Startups', 'ESNs', 'Web Agencies', 'Tech Companies', 'Client Projects']
 
+const RECENT_PROJECTS = [
+  { title: 'Syrama Services', url: 'https://syrama-services.com/' },
+  { title: 'Syrama Yachting', url: 'http://syrama-yachting.com/' },
+  { title: 'Académie WS', url: 'https://academiews.com/' },
+]
+
 // ── Engineering grid background ────────────────────────────
 function EngineeringGrid() {
   return (
@@ -170,10 +176,10 @@ function SectionStrip({ inView }: { inView: boolean }) {
       style={{ position: 'relative', zIndex: 1, marginBottom: '64px' }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
+        <span className="font-mono" style={{ fontSize: '11px', color: '#00FF94', letterSpacing: '0.25em' }}>//</span>
         <span
           className="font-mono"
-          style={{ fontSize: '11px', color: '#ffffff', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}
+          style={{ fontSize: '11px', color: '#00FF94', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}
         >
           04 · DEV
         </span>
@@ -359,6 +365,53 @@ export function FullStack() {
               SYSTEM · OPERATIONAL
             </span>
           </motion.div>
+
+          {/* Recent projects */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.8, duration: 0.5, ease: EASE }}
+            style={{ marginTop: '36px' }}
+          >
+            <p className="font-mono" style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.15em', marginBottom: '12px' }}>
+              // recent projects
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {RECENT_PROJECTS.map(project => (
+                <a
+                  key={project.url}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono group"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    fontSize: '11px',
+                    color: '#00FF94',
+                    border: '1px solid rgba(0,255,148,0.2)',
+                    backgroundColor: 'rgba(0,255,148,0.04)',
+                    padding: '9px 14px',
+                    letterSpacing: '0.05em',
+                    textDecoration: 'none',
+                    transition: 'background-color 0.2s, border-color 0.2s',
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(0,255,148,0.09)'
+                    ;(e.currentTarget as HTMLElement).style.borderColor    = 'rgba(0,255,148,0.4)'
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(0,255,148,0.04)'
+                    ;(e.currentTarget as HTMLElement).style.borderColor    = 'rgba(0,255,148,0.2)'
+                  }}
+                >
+                  {project.title}
+                  <span style={{ fontSize: '12px' }}>↗</span>
+                </a>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
         {/* RIGHT — 2×2 card grid */}
@@ -415,6 +468,39 @@ export function FullStack() {
               {ctx}
             </span>
           ))}
+        </div>
+
+        {/* Recent projects */}
+        <div style={{ marginBottom: '32px' }}>
+          <p className="font-mono" style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.15em', marginBottom: '12px' }}>
+            // recent projects
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {RECENT_PROJECTS.map(project => (
+              <a
+                key={project.url}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  fontSize: '11px',
+                  color: '#00FF94',
+                  border: '1px solid rgba(0,255,148,0.2)',
+                  backgroundColor: 'rgba(0,255,148,0.04)',
+                  padding: '9px 14px',
+                  letterSpacing: '0.05em',
+                  textDecoration: 'none',
+                }}
+              >
+                {project.title}
+                <span style={{ fontSize: '12px' }}>↗</span>
+              </a>
+            ))}
+          </div>
         </div>
 
         <div

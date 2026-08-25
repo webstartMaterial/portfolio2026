@@ -363,13 +363,13 @@ export function Projects() {
         {/* Section header */}
         <motion.div
           className="flex items-center gap-3"
-          style={{ marginBottom: '48px' }}
+          style={{ marginBottom: '64px' }}
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <span className="font-mono text-xs" style={{ color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#3A3A36' }}>
+          <span className="font-mono text-xs" style={{ color: '#00FF94', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#00FF94' }}>
             07 · PROJECTS
           </span>
           <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.05)' }} />

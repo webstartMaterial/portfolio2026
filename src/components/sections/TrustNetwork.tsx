@@ -47,7 +47,7 @@ const COUNTRIES = [
     cx: 722, cy: 164,
     card: { top: '20%', right: '0', width: '224px' },
     categories: [
-      { label: 'Training Centers', items: ['Morgan International', 'Octus Mindz Training', 'The Kid Space', 'Wood Wizards'] },
+      { label: 'Training Centers', items: ['Morgan International', 'Octus Mindz Training', 'The Kid Space', 'Wood Wizards', 'Logiscool'] },
     ],
   },
 ]
@@ -443,11 +443,11 @@ export function TrustNetwork() {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5 }}
-        style={{ position: 'relative', zIndex: 1, marginBottom: '48px' }}
+        style={{ position: 'relative', zIndex: 1, marginBottom: '64px' }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono" style={{ fontSize: '11px', color: '#3A3A36', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#00FF94', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono" style={{ fontSize: '11px', color: '#00FF94', letterSpacing: '0.25em', fontWeight: 500, textTransform: 'uppercase' }}>
             09 · NETWORK
           </span>
           <span className="font-mono" style={{

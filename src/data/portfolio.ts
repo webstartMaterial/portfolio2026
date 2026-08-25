@@ -105,6 +105,7 @@ export const PROJECTS = [
     stack:      ['PHP', 'LARAVEL', 'PostreSQL', 'VueJS'],
     year:       '2025',
     screenshot: '/project6.webp',
+    url:        'https://www.itecom-artdesign.com/',
   },
   {
     id:         '005',

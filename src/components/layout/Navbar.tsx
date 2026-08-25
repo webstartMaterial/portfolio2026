@@ -8,6 +8,7 @@ const LINKS = [
   { label: 'FWDAI',       href: '#fwdai'     },
   { label: 'DEV',         href: '#dev'       },
   { label: 'TEACH',       href: '#teaching'  },
+  { label: 'CREATOR',     href: '#content'   },
   { label: 'PROJECTS',    href: '#projects'  },
   { label: 'METRICS',     href: '#metrics'   },
   { label: 'NETWORK',     href: '#trust'     },
@@ -88,8 +89,9 @@ export function Navbar({ showDelay = 4.0 }: { showDelay?: number }) {
 
           <li>
             <a
-              href="/samih-habbani-cv.pdf"
-              download
+              href="https://academiews.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative flex items-center gap-1.5 font-mono text-[10px] font-bold tracking-[0.2em] text-[#030303] overflow-hidden rounded-sm transition-transform duration-150 hover:scale-105 active:scale-95"
               style={{ backgroundColor: '#00FF94', boxShadow: '0 0 12px rgba(0,255,148,0.25)', padding: '6px 14px' }}
             >
@@ -97,11 +99,7 @@ export function Navbar({ showDelay = 4.0 }: { showDelay?: number }) {
                 className="pointer-events-none absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"
                 style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)' }}
               />
-              <svg width="11" height="11" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="flex-shrink-0">
-                <path d="M7 1.5v7M7 8.5 4.5 6M7 8.5 9.5 6" stroke="#030303" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M2 11.5h10" stroke="#030303" strokeWidth="1.7" strokeLinecap="round"/>
-              </svg>
-              CV
+              MY E-LEARNING PLATFORM
             </a>
           </li>
           <li>
@@ -200,17 +198,14 @@ export function Navbar({ showDelay = 4.0 }: { showDelay?: number }) {
                 className="px-8 pb-10 flex flex-col gap-3"
               >
                 <a
-                  href="/samih-habbani-cv.pdf"
-                  download
+                  href="https://academiews.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={closeMenu}
-                  className="flex items-center justify-center gap-2 font-mono text-[11px] font-bold tracking-[0.2em] text-[#030303] rounded-sm py-3"
+                  className="flex items-center justify-center font-mono text-[11px] font-bold tracking-[0.2em] text-[#030303] rounded-sm py-3"
                   style={{ backgroundColor: '#00FF94', boxShadow: '0 0 20px rgba(0,255,148,0.2)' }}
                 >
-                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 1.5v7M7 8.5 4.5 6M7 8.5 9.5 6" stroke="#030303" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 11.5h10" stroke="#030303" strokeWidth="1.7" strokeLinecap="round"/>
-                  </svg>
-                  TÉLÉCHARGER CV
+                  MY E-LEARNING PLATFORM
                 </a>
                 <a
                   href="https://drive.google.com/drive/folders/1qHCAbXmXpKW9iGH2L89JghJ5tYGa2y5H?usp=sharing"

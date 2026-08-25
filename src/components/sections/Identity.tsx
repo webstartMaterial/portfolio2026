@@ -40,11 +40,11 @@ function StatusDot({ status }: { status: string }) {
 // ── Section label ──────────────────────────────────────────
 function SectionLabel({ index, title }: { index: string; title: string }) {
   return (
-    <div className="flex items-center gap-3 mb-14">
-      <span className="font-mono text-xs" style={{ color: '#3A3A36', letterSpacing: '0.25em' }}>
+    <div className="flex items-center gap-3" style={{ marginBottom: '64px' }}>
+      <span className="font-mono text-xs" style={{ color: '#00FF94', letterSpacing: '0.25em' }}>
         //
       </span>
-      <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#3A3A36' }}>
+      <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#00FF94' }}>
         {index} · {title}
       </span>
       <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.05)' }} />

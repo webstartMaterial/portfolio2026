@@ -145,13 +145,14 @@ export function Contact() {
 
         {/* ── Section header ───────────────────────────── */}
         <motion.div
-          className="flex items-center gap-3 mb-12"
+          className="flex items-center gap-3"
+          style={{ marginBottom: '64px' }}
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <span className="font-mono text-xs" style={{ color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#3A3A36' }}>
+          <span className="font-mono text-xs" style={{ color: '#00FF94', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#00FF94' }}>
             11 · CONTACT
           </span>
           <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.05)' }} />
@@ -406,7 +407,10 @@ export function Contact() {
             <div
               style={{
                 position:        'absolute',
-                inset:           'clamp(28px,4vw,48px)',
+                top:             'clamp(28px,4vw,48px)',
+                left:            'clamp(28px,4vw,48px)',
+                right:           'clamp(28px,4vw,48px)',
+                bottom:          'calc(clamp(28px,4vw,48px) + 22px)',
                 border:          '1px solid rgba(0,255,148,0.15)',
                 backgroundColor: '#000000',
                 overflow:        'hidden',
@@ -507,6 +511,36 @@ export function Contact() {
                   FEED::SAMIH_HABBANI
                 </span>
               </div>
+            </div>
+
+            {/* Filming credit */}
+            <div
+              style={{
+                position:  'absolute',
+                left:      'clamp(28px,4vw,48px)',
+                right:     'clamp(28px,4vw,48px)',
+                bottom:    'clamp(8px,1.2vw,14px)',
+                textAlign: 'center',
+              }}
+            >
+              <a
+                href="https://adatech.ae/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono"
+                style={{
+                  fontSize:      '9px',
+                  color:         '#ffffff',
+                  letterSpacing: '0.1em',
+                  textDecoration:'none',
+                  opacity:       0.5,
+                  transition:    'color 0.2s, opacity 0.2s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.color = '#00FF94'; e.currentTarget.style.opacity = '1' }}
+                onMouseLeave={e => { e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.opacity = '0.5' }}
+              >
+                Filmed at ADATECH ↗
+              </a>
             </div>
           </motion.div>
         </div>

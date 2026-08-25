@@ -25,60 +25,78 @@ const TAG_COLOR: Record<string, string> = {
 // ── Timeline entries ──────────────────────────────────────
 const ENTRIES = [
   {
-    year:  '2015',
-    log:   'INIT',
-    title: 'Front-End Developer — GLOVO',
-    desc:  'HTML, CSS, JavaScript, Angular. First commits. First production features.',
-    tag:   'FRONTEND',
+    year:     '2015',
+    log:      'INIT',
+    title:    'Front-End Developer — GLOVO',
+    desc:     'Development of the web app. HTML, CSS, JavaScript, Angular. First commits. First production features.',
+    tag:      'FRONTEND',
+    location: 'Barcelona, Spain',
+    link:     { label: 'GLOVO', url: 'https://glovoapp.com/fr?srsltid=AfmBOophf1_SucFRj00i7L79ugKFnM6q-S-scO1sXstPOZ95zyHWvKQZ' },
   },
   {
-    year:  '2016',
-    log:   'FORK',
-    title: 'Full Stack Developer — SOPRA STERIA',
-    desc:  'Java, Spring Batch. Enterprise projects for the French Government.',
-    tag:   'FULL STACK',
+    year:     '2016',
+    log:      'FORK',
+    title:    'Full Stack Developer — SOPRA STERIA',
+    desc:     'Java, Spring Batch. Enterprise projects for the French Government. Built the app that withholds income tax at source for independent workers in France.',
+    tag:      'FULL STACK',
+    location: 'Barcelona, Spain',
+    period:   '2016–2018',
+    link:     { label: 'SOPRA STERIA', url: 'https://www.soprasteria.com/' },
   },
   {
-    year:  '2018',
-    log:   'BUILD',
-    title: 'Senior Java Developer — ACCENTURE',
-    desc:  'Structured back-end systems. Client projects. Production architectures.',
-    tag:   'SENIOR DEV',
+    year:     '2018',
+    log:      'BUILD',
+    title:    'Senior Java Developer — ACCENTURE',
+    desc:     'Structured back-end systems. Client projects. Production architectures.',
+    tag:      'SENIOR DEV',
+    location: 'Malaga, Spain',
+    link:     { label: 'ACCENTURE', url: 'https://www.accenture.com/' },
   },
   {
-    year:  '2018+',
-    log:   'DEPLOY',
-    title: 'Freelance Full Stack Developer & IT Consultant',
-    desc:  'Websites, platforms, custom software. Client portfolio deployed.',
-    tag:   'FREELANCE',
+    year:     '2018+',
+    log:      'DEPLOY',
+    title:    'Freelance Full Stack Developer & IT Consultant',
+    desc:     'Websites, platforms, custom software. Client portfolio deployed.',
+    tag:      'FREELANCE',
+    location: 'Paris, France',
+    period:   '2018–Present',
+    link:     { label: 'SAMIHHABBANI.COM', url: 'https://www.samihhabbani.com/' },
   },
   {
-    year:  '2019',
-    log:   'TEACH',
-    title: 'Independent Digital Instructor',
-    desc:  'First classrooms. From code editor to whiteboard. Knowledge transmission.',
-    tag:   'TEACHING',
+    year:     '2019',
+    log:      'TEACH',
+    title:    'Independent Digital Instructor',
+    desc:     'First classrooms. From code editor to whiteboard. Knowledge transmission.',
+    tag:      'TEACHING',
+    location: 'Paris, France',
+    period:   '2019–2025',
+    link:     { label: 'EVOGUE', url: 'https://www.evogue.fr/' },
   },
   {
-    year:  '2020',
-    log:   'SCALE',
-    title: 'Building of my Training Center - Web Start',
-    desc:  'Job-ready programs for students, job seekers and professionals.',
-    tag:   'TRAINING',
+    year:     '2020',
+    log:      'SCALE',
+    title:    'Building of my Training Center - Web Start',
+    desc:     'Job-ready programs for students, job seekers and professionals.',
+    tag:      'TRAINING',
+    location: 'Paris, France',
+    period:   '2020–2024',
   },
   {
-    year:  '2022',
-    log:   'PUBLISH',
-    title: 'Launch of my e-Learning platform - Académie WS',
-    desc:  'E-learning platform. Educational videos. Tech storytelling at scale.',
-    tag:   'EDTECH',
+    year:   '2022',
+    log:    'PUBLISH',
+    title:  'Launch of my e-Learning platform - Académie WS',
+    desc:   'E-learning platform. Educational videos. Tech storytelling at scale.',
+    tag:    'EDTECH',
+    period: '2022–2025',
+    link:   { label: 'ACADEMIEWS.COM', url: 'https://academiews.com/' },
   },
   {
-    year:  '2024',
-    log:   'INTEGRATE',
-    title: 'Prompt Engineering & LLMs',
-    desc:  'AI in production. Agents, RAG, automation. New systems unlocked.',
-    tag:   'AI',
+    year:     '2024',
+    log:      'INTEGRATE',
+    title:    'Prompt Engineering & LLMs',
+    desc:     'AI in production. Agents, RAG, automation. New systems unlocked. Continuation of freelance work.',
+    tag:      'AI',
+    location: 'Paris, France',
   },
   {
     year:  '2025',
@@ -284,12 +302,48 @@ function CardContent({
       >
         {entry.title}
       </h4>
+      {('location' in entry || 'period' in entry) && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
+          {'location' in entry && (
+            <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', opacity: 0.5, letterSpacing: '0.04em' }}>
+              📍 {entry.location}
+            </span>
+          )}
+          {'period' in entry && (
+            <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', opacity: 0.5, letterSpacing: '0.04em' }}>
+              {entry.period}
+            </span>
+          )}
+        </div>
+      )}
       <p
         className="font-sans"
-        style={{ fontSize: '12px', color: '#ffffff', lineHeight: 1.7 }}
+        style={{ fontSize: '12px', color: '#ffffff', lineHeight: 1.7, marginBottom: 'link' in entry ? '10px' : '0' }}
       >
         {entry.desc}
       </p>
+      {'link' in entry && (
+        <a
+          href={entry.link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono"
+          style={{
+            display:         'inline-flex',
+            alignItems:      'center',
+            gap:             '6px',
+            fontSize:        '10px',
+            color:           color,
+            border:          `1px solid ${color}30`,
+            backgroundColor: `${color}0A`,
+            padding:         '4px 9px',
+            letterSpacing:   '0.1em',
+            textDecoration:  'none',
+          }}
+        >
+          {entry.link.label} <span style={{ fontSize: '11px' }}>↗</span>
+        </a>
+      )}
     </>
   )
 }
@@ -333,9 +387,45 @@ function MobileEntry({ entry, index }: { entry: typeof ENTRIES[number]; index: n
         <h4 className="font-mono font-medium" style={{ fontSize: '14px', color: isCurrent ? '#E8E8E0' : '#C8C8C0', marginBottom: '6px', lineHeight: 1.3 }}>
           {entry.title}
         </h4>
-        <p className="font-sans" style={{ fontSize: '12px', color: '#ffffff', lineHeight: 1.7 }}>
+        {('location' in entry || 'period' in entry) && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px', flexWrap: 'wrap' }}>
+            {'location' in entry && (
+              <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', opacity: 0.5, letterSpacing: '0.04em' }}>
+                📍 {entry.location}
+              </span>
+            )}
+            {'period' in entry && (
+              <span className="font-mono" style={{ fontSize: '10px', color: '#ffffff', opacity: 0.5, letterSpacing: '0.04em' }}>
+                {entry.period}
+              </span>
+            )}
+          </div>
+        )}
+        <p className="font-sans" style={{ fontSize: '12px', color: '#ffffff', lineHeight: 1.7, marginBottom: 'link' in entry ? '10px' : '0' }}>
           {entry.desc}
         </p>
+        {'link' in entry && (
+          <a
+            href={entry.link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono"
+            style={{
+              display:         'inline-flex',
+              alignItems:      'center',
+              gap:             '6px',
+              fontSize:        '10px',
+              color:           color,
+              border:          `1px solid ${color}30`,
+              backgroundColor: `${color}0A`,
+              padding:         '4px 9px',
+              letterSpacing:   '0.1em',
+              textDecoration:  'none',
+            }}
+          >
+            {entry.link.label} <span style={{ fontSize: '11px' }}>↗</span>
+          </a>
+        )}
       </div>
     </motion.div>
   )
@@ -358,13 +448,14 @@ export function Timeline() {
 
         {/* ── Section header ───────────────────────────── */}
         <motion.div
-          className="flex items-center gap-3 mb-12"
+          className="flex items-center gap-3"
+          style={{ marginBottom: '64px' }}
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <span className="font-mono text-xs" style={{ color: '#3A3A36', letterSpacing: '0.25em' }}>//</span>
-          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#3A3A36' }}>
+          <span className="font-mono text-xs" style={{ color: '#00FF94', letterSpacing: '0.25em' }}>//</span>
+          <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#00FF94' }}>
             10 · TIMELINE
           </span>
           <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.05)' }} />
@@ -378,7 +469,7 @@ export function Timeline() {
 
         {/* ── Headline ─────────────────────────────────── */}
         <motion.p
-          className="font-mono mb-16"
+          className="font-mono"
           style={{ fontSize: 'clamp(22px,3vw,38px)', color: '#E8E8E0', letterSpacing: '-0.02em', maxWidth: '560px' }}
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -389,7 +480,8 @@ export function Timeline() {
 
         {/* ── Legend ───────────────────────────────────── */}
         <motion.div
-          className="flex items-center gap-6 mb-14 flex-wrap"
+          className="flex items-center gap-6 flex-wrap"
+          style={{ marginBottom: '56px' }}
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.2, duration: 0.5 }}
