@@ -2,8 +2,8 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { TRAINER_STATS, CREDENTIALS_OBTAINED } from '@/data/training'
-import { IconBrain, IconCode, IconGraduation, IconGlobe } from './Icons'
+import { TRAINER_STATS, CREDENTIALS_OBTAINED, REVIEWS_SUMMARY } from '@/data/training'
+import { IconBrain, IconCode, IconGraduation, IconGlobe, IconStar } from './Icons'
 import { TrainerPortrait } from './TrainerPortrait'
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
@@ -49,6 +49,21 @@ export function TrainerHero() {
           >
             SAMIH HABBANI
           </motion.h1>
+
+          <motion.a
+            href="#testimonials"
+            initial={{ opacity: 0, y: 12 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.04, duration: 0.5, ease: EASE }}
+            className="inline-flex items-center gap-2"
+            style={{ marginBottom: '16px', textDecoration: 'none' }}
+          >
+            <IconStar size={14} color="#00D4FF" />
+            <span className="font-mono text-[12px]">
+              <span style={{ color: '#E8E8E0', fontWeight: 700 }}>{REVIEWS_SUMMARY.rating}/5</span>
+              <span style={{ color: '#ffffff', opacity: 0.55 }}> · {REVIEWS_SUMMARY.count} student reviews (Google)</span>
+            </span>
+          </motion.a>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
