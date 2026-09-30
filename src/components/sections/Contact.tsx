@@ -105,6 +105,8 @@ function TerminalInput({
 export function Contact() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const inView     = useInView(sectionRef, { once: true, margin: '-60px' })
+  const videoRef    = useRef<HTMLDivElement>(null)
+  const videoInView = useInView(videoRef, { once: true, margin: '200px' })
 
   const [name,    setName]    = useState('')
   const [email,   setEmail]   = useState('')
@@ -405,6 +407,7 @@ export function Contact() {
             {/* Video feed — absolutely positioned so it inherits the stretched
                 column height instead of dictating its own via aspect-ratio */}
             <div
+              ref={videoRef}
               style={{
                 position:        'absolute',
                 top:             'clamp(28px,4vw,48px)',
@@ -416,23 +419,38 @@ export function Contact() {
                 overflow:        'hidden',
               }}
             >
-              <video
-                src="/samih-intro.mp4"
-                poster="/samih-intro-poster.jpg"
-                controls
-                autoPlay
-                muted
-                loop
-                preload="auto"
-                playsInline
-                style={{
-                  width:    '100%',
-                  height:   '100%',
-                  objectFit:'cover',
-                  display:  'block',
-                  filter:   'contrast(1.08) saturate(1.2) hue-rotate(-6deg) brightness(0.95)',
-                }}
-              />
+              {videoInView ? (
+                <video
+                  src="/samih-intro.mp4"
+                  poster="/samih-intro-poster.jpg"
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                  preload="auto"
+                  playsInline
+                  style={{
+                    width:    '100%',
+                    height:   '100%',
+                    objectFit:'cover',
+                    display:  'block',
+                    filter:   'contrast(1.08) saturate(1.2) hue-rotate(-6deg) brightness(0.95)',
+                  }}
+                />
+              ) : (
+                // Poster only until the video scrolls near-into-view — avoids downloading the full clip on initial page load
+                <img
+                  src="/samih-intro-poster.jpg"
+                  alt=""
+                  style={{
+                    width:    '100%',
+                    height:   '100%',
+                    objectFit:'cover',
+                    display:  'block',
+                    filter:   'contrast(1.08) saturate(1.2) hue-rotate(-6deg) brightness(0.95)',
+                  }}
+                />
+              )}
 
               {/* Scanlines */}
               <div

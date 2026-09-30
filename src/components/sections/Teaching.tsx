@@ -254,7 +254,7 @@ export function Teaching() {
         <div style={{
           position:           'absolute',
           inset:              0,
-          backgroundImage:    'url(/samih-class.jpg)',
+          backgroundImage:    'url(/samih-class.webp)',
           backgroundSize:     'cover',
           backgroundPosition: 'center 20%',
           filter:             'grayscale(1) brightness(0.3) contrast(1.05)',
@@ -411,6 +411,41 @@ export function Teaching() {
       >
         I don't just teach tools. I create practical learning systems adapted to each audience — helping children, students, entrepreneurs and companies turn digital and AI knowledge into real-world execution.
       </motion.p>
+
+      <motion.a
+        href="/training-expertise"
+        className="font-mono"
+        initial={{ opacity: 0, y: 10 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ delay: 0.34, duration: 0.5 }}
+        style={{
+          display:         'inline-flex',
+          alignItems:      'center',
+          gap:             '10px',
+          marginBottom:    '56px',
+          fontSize:        '11px',
+          letterSpacing:   '0.18em',
+          color:           '#4A9EFF',
+          border:          '1px solid rgba(74,158,255,0.35)',
+          backgroundColor: 'rgba(74,158,255,0.07)',
+          padding:         '10px 20px',
+          textDecoration:  'none',
+          position:        'relative',
+          zIndex:          1,
+          transition:      'background-color 0.2s, border-color 0.2s',
+        }}
+        onMouseEnter={e => {
+          (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(74,158,255,0.14)'
+          ;(e.currentTarget as HTMLElement).style.borderColor    = 'rgba(74,158,255,0.6)'
+        }}
+        onMouseLeave={e => {
+          (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(74,158,255,0.07)'
+          ;(e.currentTarget as HTMLElement).style.borderColor    = 'rgba(74,158,255,0.35)'
+        }}
+      >
+        DISCOVER MY EXPERTISE AS A TRAINER
+        <span style={{ fontSize: '13px' }}>→</span>
+      </motion.a>
 
       {/* ── Stats strip ────────────────────────────────── */}
       <motion.div

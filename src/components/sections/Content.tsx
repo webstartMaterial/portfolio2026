@@ -140,13 +140,15 @@ function ChannelCard({
 function SecurityScreen({
   video,
   isActive,
+  shouldLoad,
   index,
   onClick,
 }: {
-  video:    typeof VIDEOS[number]
-  isActive: boolean
-  index:    number
-  onClick:  () => void
+  video:      typeof VIDEOS[number]
+  isActive:   boolean
+  shouldLoad: boolean
+  index:      number
+  onClick:    () => void
 }) {
   const thumbUrl = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`
   const embedUrl = `https://www.youtube.com/embed/${video.id}?autoplay=1&mute=1&loop=1&playlist=${video.id}&controls=0&disablekb=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&fs=0${video.start > 0 ? `&start=${video.start}` : ''}`
@@ -166,21 +168,24 @@ function SecurityScreen({
         minHeight:       0,
       }}
     >
-      {/* YouTube iframe — always mounted, all autoplay muted */}
-      <iframe
-        title={video.label}
-        src={embedUrl}
-        style={{
-          position:      'absolute',
-          top:           '-10%',
-          left:          '-5%',
-          width:         '110%',
-          height:        '120%',
-          border:        0,
-          pointerEvents: 'none',
-        }}
-        allow="autoplay; encrypted-media"
-      />
+      {/* YouTube iframe — only mounted for the active tile once the section is in view */}
+      {shouldLoad && isActive && (
+        <iframe
+          title={video.label}
+          src={embedUrl}
+          loading="lazy"
+          style={{
+            position:      'absolute',
+            top:           '-10%',
+            left:          '-5%',
+            width:         '110%',
+            height:        '120%',
+            border:        0,
+            pointerEvents: 'none',
+          }}
+          allow="autoplay; encrypted-media"
+        />
+      )}
 
       {/* Thumbnail — always mounted, hidden when active */}
       <div
@@ -301,11 +306,12 @@ function MonitorWall({ inView }: { inView: boolean }) {
   const [activeIdx, setActiveIdx] = useState(0)
 
   useEffect(() => {
+    if (!inView) return
     const interval = setInterval(() => {
       setActiveIdx(prev => (prev + 1) % VIDEOS.length)
     }, 8000)
     return () => clearInterval(interval)
-  }, [])
+  }, [inView])
 
   return (
     <motion.div
@@ -352,21 +358,21 @@ function MonitorWall({ inView }: { inView: boolean }) {
         {/* Row 1: 2 screens */}
         <div style={{ display: 'flex', gap: '1px', flex: '2', minHeight: 0 }}>
           {VIDEOS.slice(0, 2).map((v, i) => (
-            <SecurityScreen key={v.id} video={v} isActive={activeIdx === i} index={i} onClick={() => setActiveIdx(i)} />
+            <SecurityScreen key={v.id} video={v} isActive={activeIdx === i} shouldLoad={inView} index={i} onClick={() => setActiveIdx(i)} />
           ))}
         </div>
 
         {/* Row 2: 3 screens */}
         <div style={{ display: 'flex', gap: '1px', flex: '1.5', minHeight: 0 }}>
           {VIDEOS.slice(2, 5).map((v, i) => (
-            <SecurityScreen key={v.id} video={v} isActive={activeIdx === i + 2} index={i + 2} onClick={() => setActiveIdx(i + 2)} />
+            <SecurityScreen key={v.id} video={v} isActive={activeIdx === i + 2} shouldLoad={inView} index={i + 2} onClick={() => setActiveIdx(i + 2)} />
           ))}
         </div>
 
         {/* Row 3: 3 screens */}
         <div style={{ display: 'flex', gap: '1px', flex: '1.5', minHeight: 0 }}>
           {VIDEOS.slice(5, 8).map((v, i) => (
-            <SecurityScreen key={v.id} video={v} isActive={activeIdx === i + 5} index={i + 5} onClick={() => setActiveIdx(i + 5)} />
+            <SecurityScreen key={v.id} video={v} isActive={activeIdx === i + 5} shouldLoad={inView} index={i + 5} onClick={() => setActiveIdx(i + 5)} />
           ))}
         </div>
       </div>

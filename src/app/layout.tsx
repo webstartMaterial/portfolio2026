@@ -18,9 +18,27 @@ const ibmSans = IBM_Plex_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.samihhabbani.com'),
   title: 'Samih Habbani — Full Stack Developer · AI Instructor · Content Creator',
   description:
     'Portfolio de Samih Habbani — Full Stack Developer, Digital & AI Instructor, Content Creator. Je construis des systèmes, transmets des compétences, crée du contenu.',
+  openGraph: {
+    title: 'Samih Habbani — Full Stack Developer · AI Instructor · Content Creator',
+    description:
+      'Portfolio de Samih Habbani — Full Stack Developer, Digital & AI Instructor, Content Creator. Je construis des systèmes, transmets des compétences, crée du contenu.',
+    url: 'https://www.samihhabbani.com',
+    siteName: 'Samih Habbani',
+    images: ['/samih.webp'],
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Samih Habbani — Full Stack Developer · AI Instructor · Content Creator',
+    description:
+      'Portfolio de Samih Habbani — Full Stack Developer, Digital & AI Instructor, Content Creator.',
+    images: ['/samih.webp'],
+  },
 }
 
 export default function RootLayout({

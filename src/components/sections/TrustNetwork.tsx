@@ -461,7 +461,7 @@ export function TrustNetwork() {
           <span className="font-mono" style={{ fontSize: '9px', color: '#ffffff', letterSpacing: '0.12em' }}>
             {totalOrgs} ORGANIZATIONS · 4 COUNTRIES
           </span>
-          <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(255,255,255,0.05)' }} />
+          <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(0,255,148,0.3)' }} />
         </div>
       </motion.div>
 

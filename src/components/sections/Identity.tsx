@@ -102,7 +102,7 @@ export function Identity() {
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: 'url(/samih-bjj.png)',
+            backgroundImage: 'url(/samih-bjj.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center 15%',
             filter: 'grayscale(1) brightness(0.28) contrast(1.1)',
@@ -205,6 +205,37 @@ export function Identity() {
               </motion.button>
             )
           })}
+
+          {/* Education — fixed panel, always visible */}
+          <motion.div
+            variants={itemVariants}
+            style={{ marginTop: '28px', paddingLeft: '0.5rem' }}
+          >
+            <p
+              className="font-mono"
+              style={{ fontSize: '10px', color: '#ffffff', letterSpacing: '0.2em', marginBottom: '14px', opacity: 0.6 }}
+            >
+              // EDUCATION
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <div>
+                <p className="font-mono" style={{ fontSize: '12px', color: '#E8E8E0', fontWeight: 600, lineHeight: 1.4 }}>
+                  MBA International Management
+                </p>
+                <p className="font-mono" style={{ fontSize: '11px', color: '#ffffff', opacity: 0.55, marginTop: '2px' }}>
+                  Saint John&apos;s University — NY · 2015
+                </p>
+              </div>
+              <div>
+                <p className="font-mono" style={{ fontSize: '12px', color: '#E8E8E0', fontWeight: 600, lineHeight: 1.4 }}>
+                  Certificate · Web Development
+                </p>
+                <p className="font-mono" style={{ fontSize: '11px', color: '#ffffff', opacity: 0.55, marginTop: '2px' }}>
+                  Web Force 3 — Paris · 2016
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* Vertical divider */}

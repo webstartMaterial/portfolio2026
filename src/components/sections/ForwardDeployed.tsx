@@ -294,7 +294,7 @@ function AIPhotoFrame({ inView }: { inView: boolean }) {
       {/* ── Photo ───────────────────────────────── */}
       <div style={{
         position:           'absolute', inset: 0,
-        backgroundImage:    'url(/samih-waicf.jpg)',
+        backgroundImage:    'url(/samih-waicf.webp)',
         backgroundSize:     'cover',
         backgroundPosition: 'center 20%',
         filter:             'brightness(0.32) contrast(1.1) saturate(0.25)',
