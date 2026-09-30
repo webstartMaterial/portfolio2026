@@ -4,6 +4,7 @@ import { TrainerHero }         from '@/components/training/TrainerHero'
 import { AICatalog }           from '@/components/training/AICatalog'
 import { DevCatalog }          from '@/components/training/DevCatalog'
 import { ApproachFormats }     from '@/components/training/ApproachFormats'
+import { Testimonials }        from '@/components/training/Testimonials'
 import { TrustNetwork }        from '@/components/sections/TrustNetwork'
 import { ProofGalleryContact } from '@/components/training/ProofGalleryContact'
 
@@ -42,6 +43,7 @@ export default function AITrainerPage() {
       <AICatalog />
       <DevCatalog />
       <ApproachFormats />
+      <Testimonials />
       <TrustNetwork />
       <ProofGalleryContact />
     </main>

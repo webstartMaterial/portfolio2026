@@ -7,6 +7,7 @@ const LINKS = [
   { label: 'AI CATALOG',    href: '#ai-catalog'  },
   { label: 'CODING',        href: '#dev-catalog' },
   { label: 'APPROACH',      href: '#approach'    },
+  { label: 'REVIEWS',       href: '#testimonials'},
   { label: 'NETWORK',       href: '#trust'       },
   { label: 'VISIBLE PROOF', href: '#proof'       },
   { label: 'CONTACT',       href: '#contact'     },

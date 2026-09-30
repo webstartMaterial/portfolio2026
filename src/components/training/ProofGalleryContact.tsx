@@ -40,7 +40,7 @@ export function ProofGalleryContact() {
         >
           <IconShield size={16} color="#00FF94" />
           <span className="font-mono text-xs font-medium tracking-[0.25em] uppercase" style={{ color: '#00FF94' }}>
-            04 · VISIBLE PROOF
+            05 · VISIBLE PROOF
           </span>
           <div className="flex-1 h-px" style={{ background: 'rgba(0,255,148,0.3)' }} />
         </motion.div>

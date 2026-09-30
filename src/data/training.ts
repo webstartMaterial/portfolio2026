@@ -428,3 +428,32 @@ export const GALLERY_PHOTOS = [
   { src: '/samih-class.webp', caption: 'AI marketing workshop — Académie WS' },
   { src: '/samih-waicf.webp', caption: 'World AI Cannes Festival 2024 — with students' },
 ]
+
+// ── Student reviews — verified, real quotes from Académie WS's public
+// Google Business Profile (accessed 2026-09-30). Not translated: kept in
+// the students' original French. Ratings breakdown as published by Google.
+export const REVIEWS_SUMMARY = {
+  rating:     4.9,
+  count:      161,
+  source:     'Google avis',
+  sourceUrl:  'https://share.google/WUUcbmR8rDbAj3qli',
+  breakdown:  { 5: 152, 4: 7, 3: 1, 2: 0, 1: 1 },
+}
+
+export const REVIEWS = [
+  {
+    name:    'Enzo Dominguez',
+    rating:  5,
+    date:    'Visité en octobre 2024',
+    course:  'HTML — Débutant',
+    quote:   "J'ai suivi un cours de HTML débutant avec Sami, et je ne peux que le recommander ! Sami est un enseignant exceptionnel qui sait rendre le contenu accessible et engageant. Sa pédagogie est claire, et il prend le temps d'expliquer chaque concept en profondeur. Les cours sont bien structurés, avec un bon équilibre entre théorie et pratique. J'ai particulièrement apprécié les exercices interactifs qui m'ont permis de mettre en pratique ce que j'apprenais. Sami est toujours disponible pour répondre aux questions et offre des conseils utiles pour progresser. Sa passion pour le développement web est contagieuse, ce qui rend les leçons encore plus motivantes.",
+  },
+  {
+    name:    'Thélo Guibert',
+    rating:  5,
+    date:    'Visité en novembre 2024',
+    course:  null,
+    quote:   "Formation d'excellente qualité !! Le formateur est clair et extrêmement pédagogue. Que vous soyez débutant ou plus expérimenté, vous trouverez votre bonheur dans cette formation c'est une certitude !!",
+    reply:   'Merci Thélo :)',
+  },
+]

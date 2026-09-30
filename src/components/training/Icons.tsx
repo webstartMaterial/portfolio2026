@@ -193,6 +193,24 @@ export function IconSparkle({ size, color = '#4A9EFF', strokeWidth }: IconProps)
   )
 }
 
+export function IconStar({ size, color = '#00D4FF', strokeWidth }: IconProps) {
+  const s = size ?? 22
+  return (
+    <svg width={s} height={s} viewBox="0 0 24 24" fill={color} stroke="none">
+      <path d="M12 2.5 15.09 9l7.16.63-5.41 4.72 1.64 7.02L12 17.77l-6.48 3.6 1.64-7.02L1.75 9.63 8.91 9 12 2.5Z" />
+    </svg>
+  )
+}
+
+export function IconQuote({ size, color = '#00D4FF', strokeWidth }: IconProps) {
+  return (
+    <svg {...base(size, strokeWidth)} stroke="none" fill={color}>
+      <path d="M4 8c0-2.5 1.8-4.5 4.5-5l.5 1.6C7.3 5.2 6.4 6.3 6.2 7.5c1.7.2 3 1.6 3 3.3A3.2 3.2 0 0 1 6 14a3.6 3.6 0 0 1-2-6Z" />
+      <path d="M13.5 8c0-2.5 1.8-4.5 4.5-5l.5 1.6c-1.7.6-2.6 1.7-2.8 2.9 1.7.2 3 1.6 3 3.3a3.2 3.2 0 0 1-3.2 3.2 3.6 3.6 0 0 1-2-6Z" />
+    </svg>
+  )
+}
+
 const ICON_MAP: Record<string, (p: IconProps) => React.JSX.Element> = {
   code: IconCode, coffee: IconCoffee, terminal: IconTerminal, server: IconServer, database: IconDatabase, chart: IconChart,
   git: IconGit, layout: IconLayout, kanban: IconKanban, sparkle: IconSparkle, mobile: IconMobile,
